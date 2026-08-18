@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="fa">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title> کناب جادوگری سئو </title>
+  <link rel="stylesheet" href="./book shop.css">
+  <link rel="shortcut icon" href="./img/njjn.png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+
+  <!-- هدر -->
+
+  <div class="header">
+    <div class="logo">
+      <a href="./Magical SEO.html"><img src="./img/njjn.png" alt="logo"></a>
+      <h1> <a href="./Magical SEO.html">جادوگری<span id="SEO">سئو</span></h1></a>
+    </div>
+
+    <div class="menu-toggle" id="menu-toggle">
+      ☰
+    </div>
+    <ul id="menu">
+      <li><a href="./need.html">نیاز شما</a></li>
+    <li><a href="#Counseling" id="openChatLink">مشاوره</a></li>
+      <li><a href="./Magical SEO.html#about">درباره ما</a></li>
+      <li><a href="book shop.html">فروشگاه کتاب</a></li>
+      <li><a href="./Magical SEO.html#pack">پکیچ آموزشی</a></li>
+      <li><a href="./seo package.html">SEO سئو</a></li>
+    </ul>
+
+    <div class="buttons">
+      <a href="./User panel.html">پنل کاربر</a>
+      <a href="./Create an account.html">ورود</a>
+    </div>
+  </div>
+<!-- محل نمایش breadcrumb -->
+<nav aria-label="breadcrumb" dir="rtl" style="padding-right: 50px;">
+  <ol class="breadcrumb" id="breadcrumb">
+    <li><a href="Magical SEO.html">خانه</a></li> <!-- لینک جدید اینجا -->
+  </ol>
+</nav>
+  <!-- محتوای کتاب -->
+  <div class="center">
+    <div class="container">
+      <div class="book-header">
+        <!-- اسلایدر عکس کتاب -->
+        <div class="book-slider">
+          <button class="prev">&lt;</button>
+          <img src="https://cdn.iconscout.com/icon/free/png-256/free-book-280-460671.png" alt="کتاب"
+            class="slider-image">
+          <button class="next">&gt;</button>
+        </div>
+
+        <div class="book-info">
+          <h1>نام کتاب: جادوگری سئو</h1>
+          <p><strong>نویسنده:</strong> نرگس جوهری</p>
+          <p><strong>ناشر:</strong> نشر دانشگاه آزاد دزفول</p>
+          <p class="price">قیمت: 270,000 تومان</p>
+          <button id="buyButton" class="buy-button">خرید کتاب</button>
+        </div>
+      </div>
+
+      <div class="section">
+        <h2>درباره کتاب</h2>
+        <p>
+          کتاب سئو؛ کلید طلایی موفقیت در دنیای دیجیتال!
+          اگر می‌خواهید وب‌سایت‌تان در نتایج جستجو بدرخشد و بازدیدکننده‌های واقعی و هدفمند جذب کنید، این کتاب بهترین
+          راهنما برای شماست.
+        </p>
+      </div>
+
+      <div class="section">
+        <h2><a href="#">درباره نویسنده</a></h2>
+        <p>کارشناسی رشته مهندسی کامپیوتر و مدرس حرفه‌ای سئو و طراحی فرانت‌اند.</p>
+      </div>
+
+      <div class="section">
+        <h2> <a href="#">درباره ناشر</a></h2>
+        <p>نشر دانش‌پژوه یکی از ناشران تخصصی در حوزه فناوری اطلاعات است.</p>
+      </div>
+    </div>
+  </div>
+
+
+
+  <!-- فوتر -->
+  <footer>
+    <div class="footer-left">
+      <img src="img/samandehi.png" alt="نماد اعتماد" class="footer-logo">
+      <img src="img/logonj.png" alt="لوگو سایت" class="footer-logo">
+    </div>
+
+    <div class="social-icons">
+      <a href="https://www.instagram.com/magical_seo" target="_blank"><i class="fa fa-instagram"></i></a>
+      <a href="mailto:magicalseo.nj@gmail.com"><i class="fa fa-envelope"></i></a>
+      <a href="https://t.me/@Nj_seo" target="_blank"><i class="fa fa-telegram"></i></a>
+      <a href="https://www.linkedin.com/in/magical_seo" target="_blank"><i class="fa fa-linkedin-square"></i></a>
+    </div>
+
+    <div class="footer-right">
+      <div class="teacher-photo">
+        <img src="./img/008.jpg" alt="نرگس جوهری">
+        <p>مدرس: نرگس جوهری</p>
+      </div>
+    </div>
+
+    <span>© تمام حقوق برای نرگس جوهری محفوظ است. 2025</span>
+  </footer>
+  <!-- ویجت مشاوره شناور -->
+  <div class="box-widget-icon">
+    <div class="widget-icon" id="chatToggleWidget">💬</div>
+  </div>
+
+  <!-- پنجره چت -->
+  <div class="chat-box" id="chatBox">
+    <div class="chat-header">
+      <span>مشاوره رایگان</span>
+      <button id="closeChat">&times;</button>
+    </div>
+    <div class="chat-body" id="chatBody">
+      <div class="message bot">سلام! 👋 من نرگس جوهری هستم، چطور می‌تونم کمکتون کنم؟</div>
+    </div>
+    <div class="chat-input">
+      <input type="text" id="userInput" placeholder="پیامتو بنویس..." />
+      <button id="sendBtn">ارسال</button>
+    </div>
+  </div>
+
+  <!-- اسکریپت -->
+  <script>
+
+document.addEventListener('DOMContentLoaded', () => {
+  /* ====== المان‌ها ====== */
+  const chatBox = document.getElementById("chatBox");
+  const chatToggleWidget = document.getElementById("chatToggleWidget");
+  const closeChat = document.getElementById("closeChat");
+  const sendBtn = document.getElementById("sendBtn");
+  const userInput = document.getElementById("userInput");
+  const chatBody = document.getElementById("chatBody");
+  const openChatLink = document.getElementById("openChatLink"); // دکمه مشاوره
+  const menuToggle = document.getElementById('menu-toggle');
+  const menu = document.getElementById('menu');
+  const buyButton = document.getElementById('buyButton');
+
+  /* ====== محافظت از عدم وجود المنت‌ها ====== */
+  function safeAddEvent(el, ev, fn) {
+    if (!el) return;
+    el.addEventListener(ev, fn);
+  }
+
+  /* ====== چت شناور (ویجت 💬 پایین صفحه) ====== */
+  if (chatToggleWidget && chatBox) {
+    safeAddEvent(chatToggleWidget, 'click', () => {
+      chatBox.classList.toggle('show');
+    });
+  }
+
+  /* ====== بستن چت با × ====== */
+  if (closeChat && chatBox) {
+    safeAddEvent(closeChat, 'click', () => {
+      chatBox.classList.remove('show');
+    });
+  }
+
+  /* ====== باز شدن چت با دکمه "مشاوره" در هدر ====== */
+  if (openChatLink && chatBox) {
+    safeAddEvent(openChatLink, "click", (e) => {
+      e.preventDefault();
+      chatBox.classList.add("show");
+    });
+  }
+
+  /* ====== ارسال پیام در چت ====== */
+  if (sendBtn && userInput && chatBody) {
+    safeAddEvent(sendBtn, 'click', () => {
+      const txt = userInput.value.trim();
+      if (!txt) return;
+      const userMsg = document.createElement('div');
+      userMsg.classList.add('message', 'user');
+      userMsg.textContent = txt;
+      chatBody.appendChild(userMsg);
+      userInput.value = '';
+      chatBody.scrollTop = chatBody.scrollHeight;
+    });
+
+    safeAddEvent(userInput, 'keypress', (e) => {
+      if (e.key === 'Enter') {
+        e.preventDefault();
+        sendBtn.click();
+      }
+    });
+  }
+
+  /* ====== منوی موبایل ====== */
+  if (menuToggle && menu) {
+    safeAddEvent(menuToggle, 'click', () => {
+      menu.classList.toggle('active');
+      menuToggle.textContent = menu.classList.contains('active') ? '✕' : '☰';
+    });
+
+    const menuLinks = menu.querySelectorAll && menu.querySelectorAll('a');
+    if (menuLinks && menuLinks.forEach) {
+      menuLinks.forEach(link => {
+        safeAddEvent(link, 'click', () => {
+          menu.classList.remove('active');
+          menuToggle.textContent = '☰';
+        });
+      });
+    }
+  }
+
+  /* ====== دکمه خرید ====== */
+  if (buyButton) {
+    safeAddEvent(buyButton, 'click', () => {
+      const book = { id: 'book-001', title: 'جادوگری سئو', price: 270000 };
+      try {
+        sessionStorage.setItem('selectedBook', JSON.stringify(book));
+      } catch (e) {
+        console.warn('sessionStorage blocked', e);
+      }
+
+      const loggedIn = localStorage.getItem('loggedIn') === 'true';
+      if (loggedIn) {
+        window.location.href = 'address.html';
+      } else {
+        try {
+          localStorage.setItem('afterLoginRedirect', 'address.html');
+        } catch (e) {}
+        window.location.href = 'Create an account.html';
+      }
+    });
+  }
+
+  /* ====== اسلایدر عکس کتاب ====== */
+  const sliderImages = [
+    "./img/InShot_20251103_003918148.jpg",
+    "./img/mon.jpg",
+    "./img/amozish.jpg",
+    "./img/InShot_20251103_003918148.jpg"
+  ];
+
+  let currentIndex = 0;
+  const sliderImg = document.querySelector(".slider-image");
+  const prevBtn = document.querySelector(".book-slider .prev");
+  const nextBtn = document.querySelector(".book-slider .next");
+
+  if (sliderImg) {
+    function showImage(index) {
+      const safeIndex = ((index % sliderImages.length) + sliderImages.length) % sliderImages.length;
+      const src = sliderImages[safeIndex] || '';
+      sliderImg.src = src;
+    }
+
+    if (nextBtn) {
+      safeAddEvent(nextBtn, 'click', () => {
+        currentIndex = (currentIndex + 1) % sliderImages.length;
+        showImage(currentIndex);
+      });
+    }
+
+    if (prevBtn) {
+      safeAddEvent(prevBtn, 'click', () => {
+        currentIndex = (currentIndex - 1 + sliderImages.length) % sliderImages.length;
+        showImage(currentIndex);
+      });
+    }
+
+    safeAddEvent(sliderImg, 'click', () => {
+      currentIndex = (currentIndex - 1 + sliderImages.length) % sliderImages.length;
+      showImage(currentIndex);
+    });
+
+    showImage(currentIndex);
+  } else {
+    console.info('اسلایدر عکس یافت نشد.');
+  }
+
+  /* ====== نمایش ارور موقتی (اختیاری) ====== */
+  function showError(msg, timeout = 3000) {
+    let errorDiv = document.getElementById('comment-error');
+    if (!errorDiv) {
+      errorDiv = document.createElement('div');
+      errorDiv.id = 'comment-error';
+      document.body.appendChild(errorDiv);
+    }
+    errorDiv.textContent = msg;
+    errorDiv.style.position = 'fixed';
+    errorDiv.style.top = '20px';
+    errorDiv.style.right = '20px';
+    errorDiv.style.backgroundColor = '#ff4d4f';
+    errorDiv.style.color = '#fff';
+    errorDiv.style.padding = '10px 18px';
+    errorDiv.style.borderRadius = '8px';
+    errorDiv.style.boxShadow = '0 4px 12px rgba(0,0,0,0.3)';
+    errorDiv.style.zIndex = '99999';
+    setTimeout(() => errorDiv.remove(), timeout);
+  }
+});
+// مثال مسیر
+const path = [
+  { name: "فروشگاه کتاب ", url: "./book shop.html" },
+
+
+];
+
+// ایجاد breadcrumb
+path.forEach(item => {
+  const li = document.createElement("li");
+  const a = document.createElement("a");
+  a.href = item.url;
+  a.textContent = item.name;
+  li.appendChild(a);
+  breadcrumb.appendChild(li);
+});
+
+  </script>
+</body>
+</html>

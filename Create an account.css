@@ -1,0 +1,125 @@
+/* =================== ریشه و متغیرها =================== */
+:root {
+    --bg: #0f1724;
+    --card: #0b1220;
+    --accent: #0ABAB5;
+    --muted: #9aa4b2;
+    --font: 'Vazirmatn', sans-serif;
+}
+* {
+  box-sizing: border-box;
+}
+body {
+  font-family: Tahoma, sans-serif;
+  background: #0f1724;
+  margin: 0; padding: 0;
+  direction: rtl;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+.container {
+  background: white;
+  width: 360px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  overflow: hidden;
+}
+.tabs {
+  display: flex;
+  border-bottom: 1px solid #ddd;
+}
+.tab {
+  flex: 1;
+  text-align: center;
+  padding: 15px 0;
+  cursor: pointer;
+  font-weight: bold;
+  user-select: none;
+  background: #1e293b;
+  transition: background-color 0.3s ease;
+}
+.tab.active {
+  background: #2a3b55;
+  color: white;
+}
+ /* #3498db */
+form {
+  padding: 20px;
+  display: none;
+}
+form.active {
+  display: block;
+}
+label {
+  display: block;
+  margin-bottom: 6px;
+  margin-top: 12px;
+  font-weight: 600;
+  color: #333;
+}
+input[type="text"], input[type="email"], input[type="password"] {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-size: 15px;
+}
+input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focus {
+  border-color: #3498db;
+  outline: none;
+}
+button {
+  margin-top: 20px;
+  width: 100%;
+  background-color: #2a3b55;
+  border: none;
+  padding: 12px;
+  font-weight: bold;
+  color: white;
+  font-size: 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-bottom: 10px;
+}
+button:hover {
+  background-color: #2980b9;
+  cursor: pointer;
+}
+.error {
+  color: #e74c3c;
+  font-size: 13px;
+  margin-top: 6px;
+}
+.success {
+  color: #27ae60;
+  font-size: 14px;
+  margin-top: 10px;
+  text-align: center;
+}
+.but0 a{
+ display: contents;
+ color: white;
+}
+
+ /* کد دکه  لایک  */
+/* .like-button-container {
+    text-align: center;
+}
+
+.like-button {
+    background-color: #ff4081;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.like-button:hover {
+    background-color: #e91e63;
+} */

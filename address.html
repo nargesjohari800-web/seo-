@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="fa">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ثبت آدرس</title>
+<style>
+/* 🎨 استایل کلی صفحه */
+body {
+  font-family: sans-serif;
+  direction: rtl;
+  padding: 20px;
+  background: #0f1724;
+  color: #e6eef6;
+  margin: 0;
+}
+
+/* 🧱 جعبه اصلی فرم */
+.box {
+  max-width: 700px;
+  margin: 40px auto;
+  background: #111827;
+  padding: 25px 20px;
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+}
+
+/* 🧾 عنوان */
+h2 {
+  text-align: center;
+  margin-bottom: 25px;
+  color: #0ABAB5;
+  font-size: 20px;
+}
+
+/* ✏️ فیلدهای ورودی */
+input, textarea, select {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0 18px 0;
+  border-radius: 8px;
+  border: 1px solid #333;
+  background: #0f1724;
+  color: #fff;
+  font-size: 15px;
+  box-sizing: border-box;
+  transition: border-color 0.3s;
+}
+
+/* فوکوس روی فیلد */
+input:focus, textarea:focus, select:focus {
+  border-color: #0ABAB5;
+  outline: none;
+}
+
+/* 📞 شماره تلفن و کدپستی عددی */
+input[type="tel"],
+input[type="number"] {
+  text-align: left;
+  direction: ltr;
+}
+
+/* 💬 textarea */
+textarea {
+  resize: none;
+  min-height: 90px;
+}
+
+/* 🎯 دکمه ارسال */
+button {
+  background: #0ABAB5;
+  color: #081014;
+  border: none;
+  padding: 12px 18px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  display: block;
+  width: 100%;
+  transition: background-color 0.3s, color 0.3s, transform 0.2s;
+}
+
+/* ✨ حالت هاور */
+button:hover {
+  background-color: #3b82f6;
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+/* 📱 ریسپانسیو */
+@media (max-width: 600px) {
+  .box {
+    padding: 20px 15px;
+  }
+
+  input, textarea, select {
+    font-size: 14px;
+  }
+
+  button {
+    font-size: 15px;
+  }
+}
+
+</style>
+</head>
+<body>
+<div class="box">
+  <h2>آدرس گیرنده و اطلاعات ارسال</h2>
+  
+  <div id="productInfo" class="product-info"></div>
+
+  <form id="addressForm">
+    <label>نام و نام خانوادگی</label>
+    <input id="fullname" required>
+
+    <label>تلفن</label>
+    <input id="phone" type="tel" inputmode="numeric" pattern="[0-9]*" maxlength="11" placeholder="مثلاً: 09121234567" required>
+
+    <label>استان</label>
+    <select id="province" required>
+      <option value="">انتخاب کنید...</option>
+    </select>
+
+    <label>شهر</label>
+    <select id="city" required>
+      <option value="">ابتدا استان را انتخاب کنید</option>
+    </select>
+
+    <label>کد پستی</label>
+    <input id="postalCode" type="text" inputmode="numeric" pattern="[0-9]*" maxlength="10" placeholder="مثلاً: 1234567890" required>
+
+    <label>آدرس کامل</label>
+    <textarea id="address" required></textarea>
+
+    <button type="submit">تأیید و ادامه به پرداخت 💳</button>
+  </form>
+</div>
+
+<script>
+// ✅ گرفتن اطلاعات محصول از sessionStorage
+const product = JSON.parse(sessionStorage.getItem('selectedBook'));
+if (!product) {
+  alert('هیچ محصولی انتخاب نشده!');
+  window.location.href = 'book shop.html';
+} else {
+  document.getElementById('productInfo').textContent =
+    `شما در حال خرید "${product.title}" به مبلغ ${product.price.toLocaleString()} تومان هستید.`;
+}
+
+// ✅ داده‌های استان‌ها و شهرها
+const provinces = {
+  "تهران": ["تهران", "اسلام‌شهر", "ورامین", "ری", "پاکدشت"],
+  "اصفهان": ["اصفهان", "کاشان", "نجف‌آباد", "فلاورجان", "خمینی‌شهر"],
+  "فارس": ["شیراز", "مرودشت", "کازرون", "جهرم"],
+  "خراسان رضوی": ["مشهد", "نیشابور", "تربت‌حیدریه"],
+  "بوشهر": ["بوشهر", "دشتستان", "کنگان", "گناوه"],
+  "گیلان": ["رشت", "انزلی", "لاهیجان", "لنگرود"],
+  "مازندران": ["ساری", "بابل", "آمل", "نور", "نوشهر"],
+  "آذربایجان شرقی": ["تبریز", "مراغه", "مرند", "اهر"],
+  "آذربایجان غربی": ["ارومیه", "خوی", "بوکان", "مهاباد"],
+  "هرمزگان": ["بندرعباس", "قشم", "میناب"],
+};
+
+// ✅ پر کردن لیست استان‌ها
+const provinceSelect = document.getElementById("province");
+const citySelect = document.getElementById("city");
+
+for (let province in provinces) {
+  const opt = document.createElement("option");
+  opt.value = province;
+  opt.textContent = province;
+  provinceSelect.appendChild(opt);
+}
+
+// ✅ وقتی استان تغییر کرد، شهرها رو آپدیت کن
+provinceSelect.addEventListener("change", () => {
+  const selected = provinceSelect.value;
+  citySelect.innerHTML = "";
+
+  if (selected && provinces[selected]) {
+    provinces[selected].forEach(city => {
+      const opt = document.createElement("option");
+      opt.value = city;
+      opt.textContent = city;
+      citySelect.appendChild(opt);
+    });
+  } else {
+    const opt = document.createElement("option");
+    opt.textContent = "ابتدا استان را انتخاب کنید";
+    citySelect.appendChild(opt);
+  }
+});
+
+// ✅ فقط اجازه اعداد برای تلفن و کد پستی
+document.getElementById('phone').addEventListener('input', e => {
+  e.target.value = e.target.value.replace(/\D/g, '');
+});
+document.getElementById('postalCode').addEventListener('input', e => {
+  e.target.value = e.target.value.replace(/\D/g, '');
+});
+
+// ✅ وقتی فرم ارسال شد
+document.getElementById('addressForm').addEventListener('submit', (e) => {
+  e.preventDefault();
+
+  const info = {
+    fullname: fullname.value.trim(),
+    phone: phone.value.trim(),
+    province: province.value.trim(),
+    city: city.value.trim(),
+    postalCode: postalCode.value.trim(),
+    address: address.value.trim()
+  };
+
+  if (!info.fullname || !info.phone || !info.province || !info.city || !info.postalCode)
+    return alert('لطفاً تمام فیلدها را کامل کنید.');
+
+  sessionStorage.setItem('userAddress', JSON.stringify(info));
+  window.location.href = 'payment.html';
+});
+</script>
+</body>
+</html>

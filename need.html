@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="fa">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./need.css">
+  <link rel="shortcut icon" href="./img/njjn.png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <title>نیاز شما</title>
+</head>
+
+<body>
+
+  <!-- هدر -->
+
+  <div class="header">
+    <div class="logo">
+      <a href="./Magical SEO.html"><img src="./img/njjn.png" alt="logo"></a>
+      <h1> <a href="./Magical SEO.html">جادوگری<span id="SEO">سئو</span></h1></a>
+    </div>
+
+    <div class="menu-toggle" id="menu-toggle">
+      ☰
+    </div>
+    <ul id="menu">
+      <li><a href="./need.html">نیاز شما</a></li>
+    <li><a href="#Counseling" id="openChatLink">مشاوره</a></li>
+      <li><a href="./Magical SEO.html#about">درباره ما</a></li>
+      <li><a href="book shop.html">فروشگاه کتاب</a></li>
+      <li><a href="./Magical SEO.html#pack">پکیچ آموزشی</a></li>
+      <li><a href="./seo package.html">SEO سئو</a></li>
+    </ul>
+
+    <div class="buttons">
+      <a href="./User panel.html">پنل کاربر</a>
+      <a href="./Create an account.html">ورود</a>
+    </div>
+  </div>
+<!-- محل نمایش breadcrumb -->
+<nav aria-label="breadcrumb" dir="rtl" style="padding-right: 50px;">
+  <ol class="breadcrumb" id="breadcrumb">
+    <li><a href="Magical SEO.html">خانه</a></li> <!-- لینک جدید اینجا -->
+  </ol>
+</nav>
+
+  <!-- بخش اصلی -->
+  <div class="center">
+    <div class="container">
+      <h1>افزونه‌ها و چک لیست‌های پکیج</h1>
+      <div class="item-list">
+        <div class="item">
+          <h3>google sheet های پکیچ pdf</h3>
+          <p>ابزار کاربردی بررسی وضعیت صفحات وب‌سایت به صورت دقیق و سریع.</p>
+          <a href="./pdf.zip" download class="btn-download">دانلود فایل</a>
+        </div>
+        <div class="item">
+          <h3>چک لیست سئو تکنیکال</h3>
+          <p>چک لیست برای راهنمایی و راحت شدن کار</p>
+          <a href="./چک_لیست_سئو_تکنیکال.pdf" download class="btn-download">دانلود چک لیست</a>
+        </div>
+        <div class="item">
+          <h3>چک لیست سئو داخلی</h3>
+          <p>چک لیست برای راهنمایی و راحت شدن کار</p>
+          <a href="./چک_لیست_سئو_داخلی.docx.pdf" download class="btn-download">دانلود چک لیست</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+  <!-- فوتر -->
+
+  <footer>
+    <div class="footer-left">
+      <img src="img/samandehi.png" alt="نماد اعتماد" class="footer-logo">
+      <img src="img/logonj.png" alt="لوگو سایت" class="footer-logo">
+    </div>
+
+    <div class="social-icons">
+      <a href="https://www.instagram.com/magical_seo" target="_blank"><i class="fa fa-instagram"></i></a>
+      <a href="mailto:magicalseo.nj@gmail.com"><i class="fa fa-envelope"></i></a>
+      <a href="https://t.me/@Nj_seo" target="_blank"><i class="fa fa-telegram"></i></a>
+      <a href="https://www.linkedin.com/in/magical_seo" target="_blank"><i class="fa fa-linkedin-square"></i></a>
+    </div>
+
+    <div class="footer-right">
+      <div class="teacher-photo">
+        <img src="./img/008.jpg" alt="نرگس جوهری">
+        <p>مدرس: نرگس جوهری</p>
+      </div>
+    </div>
+
+    <span>© تمام حقوق برای نرگس جوهری محفوظ است. 2025</span>
+  </footer>
+  <!-- ویجت مشاوره شناور -->
+  <div class="box-widget-icon">
+    <div class="widget-icon" id="chatToggleWidget">💬</div>
+  </div>
+
+  <!-- پنجره چت -->
+  <div class="chat-box" id="chatBox">
+    <div class="chat-header">
+      <span>مشاوره رایگان</span>
+      <button id="closeChat">&times;</button>
+    </div>
+    <div class="chat-body" id="chatBody">
+      <div class="message bot">سلام! 👋 من نرگس جوهری هستم، چطور می‌تونم کمکتون کنم؟</div>
+    </div>
+    <div class="chat-input">
+      <input type="text" id="userInput" placeholder="پیامتو بنویس..." />
+      <button id="sendBtn">ارسال</button>
+    </div>
+  </div>
+
+
+  <!-- اسکریپت -->
+  <script>
+    // گرفتن المان ویجت پایین صفحه
+    const chatBox = document.getElementById("chatBox");
+    const chatToggleWidget = document.getElementById("chatToggleWidget");
+    const closeChat = document.getElementById("closeChat");
+
+    // باز و بسته شدن چت با دکمه 💬
+    chatToggleWidget.addEventListener("click", () => {
+      chatBox.classList.toggle("show");
+    });
+
+    // بستن چت با ×
+    closeChat.addEventListener("click", () => {
+      chatBox.classList.remove("show");
+    });
+
+    // ارسال پیام کاربر
+    const sendBtn = document.getElementById("sendBtn");
+    const userInput = document.getElementById("userInput");
+    const chatBody = document.getElementById("chatBody");
+
+    sendBtn.addEventListener("click", () => {
+      if (userInput.value.trim() === "") return;
+      const userMsg = document.createElement("div");
+      userMsg.classList.add("message", "user");
+      userMsg.textContent = userInput.value;
+      chatBody.appendChild(userMsg);
+      userInput.value = "";
+      chatBody.scrollTop = chatBody.scrollHeight;
+    });
+
+    // باز شدن چت با کلیک روی دکمه "مشاوره"
+    const openChatLink = document.getElementById("openChatLink");
+    openChatLink.addEventListener("click", e => {
+      e.preventDefault();
+      chatBox.classList.add("show");
+    });
+
+    // منوی موبایل
+    const menuToggle = document.getElementById('menu-toggle');
+    const menu = document.querySelector('.header ul');
+    menuToggle.addEventListener('click', () => {
+      menu.classList.toggle('active');
+      menuToggle.textContent = menu.classList.contains('active') ? '✕' : '☰';
+    });
+    menu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        menu.classList.remove('active');
+        menuToggle.textContent = '☰';
+      });
+    });
+
+// مثال مسیر
+const path = [
+  { name: "نیاز شما ", url: "./need.html" },
+
+
+];
+
+// ایجاد breadcrumb
+path.forEach(item => {
+  const li = document.createElement("li");
+  const a = document.createElement("a");
+  a.href = item.url;
+  a.textContent = item.name;
+  li.appendChild(a);
+  breadcrumb.appendChild(li);
+});
+
+  </script>
+</body>
+
+</html>

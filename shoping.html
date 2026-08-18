@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+  <meta charset="UTF-8">
+  <title>صورت‌حساب — جادوگری سئو</title>
+  <link rel="shortcut icon" href="./img/njjn.png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="./shopimh.css">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <style>
+    body {font-family:sans-serif; direction:rtl; text-align:right;}
+    .checkout-wrap { max-width:1000px; margin:40px auto; padding:20px; background:rgba(255,255,255,0.03); border-radius:10px; }
+    table.invoice { width:100%; border-collapse:collapse; margin-bottom:16px; }
+    table.invoice th, table.invoice td { padding:12px 10px; border:1px solid rgba(255,255,255,0.06); text-align:right; }
+    .controls { display:flex; gap:12px; flex-wrap:wrap; align-items:center; justify-content:space-between; }
+    .btn { padding:10px 16px; border:0; background:var(--accent,#ffd700); color:#081014; border-radius:8px; cursor:pointer; font-weight:600; }
+    .muted { color:var(--muted,#aaa); font-size:14px; }
+    .summary { text-align:right; margin-top:12px; }
+    .small-input { padding:8px; border-radius:6px; border:1px solid rgba(255,255,255,0.06); background:transparent; color:inherit; }
+    @media (max-width:700px){ .controls { flex-direction:column; align-items:stretch; } }
+  </style>
+</head>
+
+<body>
+  <!-- ========== هدر ========== -->
+  <div class="header">
+    <div class="logo"><h1>جادوگری<span id="SEO">سئو</span></h1></div>
+    <div class="menu-toggle" id="menu-toggle">☰</div>
+
+    <ul id="menu">
+      <li><a href="./need.html">نیاز شما</a></li>
+      <li><a href="#Counseling">مشاوره</a></li>
+      <li><a href="./Magical SEO.html#about">درباره ما</a></li>
+      <li><a href="book shop.html">فروشگاه کتاب</a></li>
+      <li><a href="seo package.html">پکیج آموزشی</a></li>
+      <li><a href="./Magical SEO.html#seo">SEO سئو</a></li>
+    </ul>
+
+    <div class="buttons">
+      <a href="./User panel.html">پنل کاربر</a>
+      <a href="./Create an account.html">ورود / ثبت‌نام</a>
+    </div>
+  </div>
+
+  <!-- ========== بخش صورت‌حساب ========== -->
+  <div class="checkout-wrap">
+    <h2 id="product-title">صورت‌حساب</h2>
+    <p class="muted">محصول انتخاب‌شده را بررسی کنید، هزینه پست را انتخاب کنید و سپس روی «پرداخت» بزنید.</p>
+
+    <table class="invoice" dir="rtl">
+      <thead>
+        <tr>
+          <th>ردیف</th>
+          <th>نام محصول</th>
+          <th>تعداد</th>
+          <th>قیمت واحد</th>
+          <th>مبلغ</th>
+        </tr>
+      </thead>
+      <tbody id="cart-items"></tbody>
+      <tfoot>
+        <tr>
+          <td colspan="4" style="text-align:left">جمع کالا</td>
+          <td id="subtotal">۰</td>
+        </tr>
+        <tr>
+          <td colspan="4" style="text-align:left">هزینه پست</td>
+          <td id="shipping-cost">۰</td>
+        </tr>
+        <tr>
+          <td colspan="4" style="text-align:left"><strong>جمع کل</strong></td>
+          <td id="grand-total"><strong>۰</strong></td>
+        </tr>
+      </tfoot>
+    </table>
+
+    <div class="controls">
+      <div style="display:flex; gap:12px; align-items:center;">
+        <label class="muted">انتخاب نوع پست:</label>
+        <select id="shipping-select" class="small-input">
+          <option value="30000">پست عادی — ۳۰٬۰۰۰ تومان</option>
+          <option value="50000">پست سریع — ۵۰٬۰۰۰ تومان</option>
+          <option value="0">دریافت حضوری</option>
+        </select>
+        <label class="muted">تعداد:</label>
+        <input id="qty" type="number" min="1" value="1" class="small-input" style="width:80px;">
+      </div>
+
+      <form action="create_payment.php" method="post" id="payment-form">
+        <input type="hidden" name="orderData" id="orderData">
+        <button type="submit" class="btn">پرداخت</button>
+      </form>
+    </div>
+
+    <div class="summary">
+      <p class="muted">در صورت ورود، پرداخت به صورت خودکار به درگاه بانکی هدایت می‌شود.</p>
+    </div>
+  </div>
+
+  <!-- ========== فوتر ========== -->
+  <footer>
+    <div class="social-icons">
+      <a href="https://www.instagram.com/yourusername" target="_blank"><i class="fa fa-instagram"></i></a>
+      <a href="mailto:youremail@example.com"><i class="fa fa-envelope"></i></a>
+      <a href="https://t.me/yourusername" target="_blank"><i class="fa fa-telegram"></i></a>
+      <a href="https://www.linkedin.com/in/yourname" target="_blank"><i class="fa fa-linkedin-square"></i></a>
+    </div>
+    <div class="footer-left">
+      <img src="img/samandehi.png" alt="نماد اعتماد" class="footer-logo">
+      <img src="img/logonj.png" alt="لوگو سایت" class="footer-logo">
+    </div>
+    © تمام حقوق برای نرگس جوهری محفوظ است. 2025
+    <div class="footer-right">
+      <div class="teacher-photo">
+        <img src="./img/008.jpg" alt="نرگس جوهری">
+        <p>مدرس: نرگس جوهری</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ========== اسکریپت‌ها ========== -->
+  <script>
+  // بررسی محصول انتخاب‌شده
+ const product = JSON.parse(sessionStorage.getItem('selectedBook'));
+
+  if (!product) {
+    alert('هیچ محصولی انتخاب نشده!');
+    window.location.href = 'seo package.html';
+  }
+
+  // عناصر صفحه
+  const cartItemsEl = document.getElementById('cart-items');
+  const qtyEl = document.getElementById('qty');
+  const subtotalEl = document.getElementById('subtotal');
+  const shippingSelect = document.getElementById('shipping-select');
+  const shippingCostEl = document.getElementById('shipping-cost');
+  const grandTotalEl = document.getElementById('grand-total');
+  const orderInput = document.getElementById('orderData');
+  const paymentForm = document.getElementById('payment-form');
+
+  // فرمت تومان
+  function formatToman(n) {
+    return n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + ' تومان';
+  }
+
+  // نمایش محصول در جدول
+  function renderCart() {
+    const qty = parseInt(qtyEl.value) || 1;
+    const lineTotal = qty * product.price;
+    cartItemsEl.innerHTML = `
+      <tr>
+        <td>1</td>
+        <td>${product.title}</td>
+        <td>${qty}</td>
+        <td>${formatToman(product.price)}</td>
+        <td>${formatToman(lineTotal)}</td>
+      </tr>
+    `;
+    updateTotals();
+  }
+
+  // جمع کل و هزینه پست
+  function updateTotals() {
+    const qty = parseInt(qtyEl.value) || 1;
+    const subtotal = qty * product.price;
+    const shipping = parseInt(shippingSelect.value) || 0;
+    const grand = subtotal + shipping;
+    shippingCostEl.textContent = formatToman(shipping);
+    subtotalEl.textContent = formatToman(subtotal);
+    grandTotalEl.textContent = formatToman(grand);
+  }
+
+  // رویدادها
+  qtyEl.addEventListener('input', renderCart);
+  shippingSelect.addEventListener('change', updateTotals);
+  renderCart();
+
+  // ارسال فرم پرداخت
+  paymentForm.addEventListener('submit', (e) => {
+    const order = {
+      id: product.id,
+      title: product.title,
+      qty: parseInt(qtyEl.value),
+      price: product.price,
+      shipping: parseInt(shippingSelect.value),
+      total: parseInt(qtyEl.value) * product.price + parseInt(shippingSelect.value)
+    };
+    orderInput.value = JSON.stringify(order);
+  });
+  </script>
+</body>
+</html>

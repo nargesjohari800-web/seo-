@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="fa">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>پنل کاربری</title>
+  <link rel="stylesheet" href="User panel.css" />
+</head>
+
+<body>
+  <div class="container">
+    <nav class="sidebar">
+      <h2>پنل کاربری</h2>
+      <ul>
+        <li><a href="#" class="nav-link active" data-page="dashboard">داشبورد</a></li>
+        <li><a href="#" class="nav-link" data-page="settings"> تنظیمات حساب کاربری</a></li>
+        <li><a href="#" class="nav-link" data-page="profile">تغییر پروفایل</a></li>
+        <li><a href="./Magical SEO.html" class="back-home" data-page="back-home">صحفه اصلی</a></li>
+        <li><a href="#"><span class="Exit" data-page="Exit">خروج از حساب</span></a></li>
+      </ul>
+      <!-- <img src="./img/n.johari.jpg" alt="logo"> -->
+    </nav>
+    <main class="content">
+      <section id="dashboard" class="page active">
+        <h1>داشبورد</h1>
+        <p>خوش آمدید به پنل کاربری!</p>
+        <!-- عکس پیش فرض -->
+<img id="profile-pic" src="./img/mon.jpg" alt="Profile Picture" style="width:150px;height:150px;border-radius:50%;cursor:pointer;" />
+
+<!-- input فایل -->
+<input type="file" id="file-input" accept="image/*" style="display:none;">
+<button id="uploadBtn">بارگذاری عکس</button>
+
+<p id="uploadMessage" style="color:red;"></p>
+
+        
+
+        <script>
+document.addEventListener('DOMContentLoaded', () => {
+  const profilePic = document.getElementById('profile-pic');
+  const fileInput = document.getElementById('file-input');
+  const uploadBtn = document.getElementById('uploadBtn');
+  const uploadMessage = document.getElementById('uploadMessage');
+
+  uploadBtn.addEventListener('click', () => fileInput.click());
+  profilePic.addEventListener('click', () => fileInput.click());
+
+  fileInput.addEventListener('change', () => {
+    const file = fileInput.files[0];
+    if (!file) return;
+
+    const maxSizeMB = 2;
+    if (file.size / 1024 / 1024 > maxSizeMB) {
+      uploadMessage.textContent = `حجم فایل زیاد است. لطفاً عکس کمتر از ${maxSizeMB}MB انتخاب کنید.`;
+      fileInput.value = '';
+      return;
+    }
+
+    const img = new Image();
+    img.onload = function() {
+      const maxWidth = 1024;
+      const maxHeight = 1024;
+      if (img.width > maxWidth || img.height > maxHeight) {
+        uploadMessage.textContent = `ابعاد عکس زیاد است. لطفاً عکس با حداکثر ${maxWidth}x${maxHeight} انتخاب کنید.`;
+        fileInput.value = '';
+        return;
+      }
+
+      profilePic.src = img.src;
+      uploadMessage.textContent = '';
+    };
+    img.src = URL.createObjectURL(file);
+  });
+});
+
+        </script>
+        <!-- </section> -->
+
+        <h1>پیشرفت شما در سایت</h1>
+        <div class="progress-container">
+          <div class="progress-bar" id="progressBar">0%</div>
+        </div>
+        <script>
+          let progress = 0;
+
+          function increaseProgress() {
+            if (progress < 100) {
+              progress += 10; // هر بار ۱۰ درصد اضافه می‌شود
+              const progressBar = document.getElementById("progressBar");
+              progressBar.style.width = progress + "%";
+              progressBar.textContent = progress + "%";
+            }
+          }
+        </script>
+
+<div class="package-card" id="userPackage"></div>
+      </section>
+
+      <section id="settings" class="page">
+        <h1>تنظیمات</h1>
+        <form id="settingsForm">
+          <div class="container">
+            <form id="accountSettingsForm">
+              <!-- شمارع تلفن -->
+              <br><br><label for="phoneProfile">شماره همراه:</label><br>
+              <input type="tel" id="phoneProfile" name="phoneProfile" placeholder="09121234567" pattern="^09\d{9}$"
+                title="شماره موبایل باید 11 رقم و با 09 شروع شود" required><br><br>
+
+              <!-- ایمیل -->
+              <label for="emailProfile">ایمیل:</label><br>
+              <input type="email" id="emailProfile" name="emailProfile" placeholder="example@example.com"
+                required><br><br>
+
+              <fieldset>
+                <legend>تغییر رمز عبور</legend>
+                <label for="currentPassword">رمز فعلی:</label>
+                <input type="password" id="currentPassword" name="currentPassword" required />
+
+                <label for="newPassword">رمز جدید:</label>
+                <input type="password" id="newPassword" name="newPassword" required minlength="6" />
+
+                <label for="confirmPassword">تکرار رمز جدید:</label>
+                <input type="password" id="confirmPassword" name="confirmPassword" required minlength="6" />
+              </fieldset>
+              <br /><br />
+              <button type="submit">ذخیره تنظیمات</button>
+            </form>
+          </div>
+          <p id="settingsMessage" class="message"></p>
+      </section>
+
+
+      <section id="profile" class="page">
+        <h1>تغییر پروفایل</h1>
+        <form id="profileForm">
+          <!-- نام کاربری -->
+          <label for="username">نام کاربری:</label><br>
+          <input type="text" id="username" name="username" required><br><br>
+
+          <!-- جنسیت -->
+          <label>جنسیت:</label><br>
+          <input type="radio" name="gender" value="female" id="femaleProfile" required>
+          <label for="femaleProfile">زن</label><br>
+          <input type="radio" name="gender" value="male" id="maleProfile">
+          <label for="maleProfile">مرد</label><br><br>
+
+          <!-- تاریخ تولد -->
+          <label for="dateProfile">تاریخ تولد:</label><br>
+          <input type="date" id="dateProfile" name="dateProfile"><br><br>
+
+          <!-- کد ملی -->
+          <label for="nationalCodeProfile">کد ملی:</label><br>
+          <input type="text" id="nationalCodeProfile" name="nationalCodeProfile" placeholder="مثال: 0012345678"
+            pattern="\d{10}" title="کد ملی باید ۱۰ رقم باشد" required><br><br>
+
+          <!-- شماره همراه -->
+          <label for="phoneProfile">شماره همراه:</label><br>
+          <input type="tel" id="phoneProfile" name="phoneProfile" placeholder="09121234567" pattern="^09\d{9}$"
+            title="شماره موبایل باید 11 رقم و با 09 شروع شود" required><br><br>
+
+          <!-- کد پوستی -->
+          <label for="postalCodeProfile">کد پستی:</label><br>
+          <input type="text" id="postalCodeProfile" name="postalCodeProfile" placeholder="مثال: 123456789012345"
+            pattern="\d{1,15}" title="کد پوستی فقط عدد و حداکثر ۱۵ رقم باشد" required><br><br>
+
+
+          <!-- آدرس (بیوگرافی جدید) -->
+          <label for="addressProfile">آدرس:</label><br>
+          <textarea id="addressProfile" name="addressProfile" rows="4"
+            placeholder="آدرس خود را وارد کنید"></textarea><br><br>
+
+          <!-- استان -->
+          <label for="stateProfile">استان:</label><br>
+          <select name="stateProfile" id="stateProfile">
+            <option value="">استان خود را انتخاب کنید</option>
+            <option value="تهران">تهران</option>
+            <option value="گیلان">گیلان</option>
+            <option value="آذربایجان شرقی">آذربایجان شرقی</option>
+            <option value="خوزستان">خوزستان</option>
+            <option value="فارس">فارس</option>
+            <option value="اصفهان">اصفهان</option>
+            <option value="خراسان رضوی">خراسان رضوی</option>
+            <option value="قزوین">قزوین</option>
+            <option value="سمنان">سمنان</option>
+            <option value="قم">قم</option>
+            <option value="مرکزی">مرکزی</option>
+            <option value="زنجان">زنجان</option>
+            <option value="مازندران">مازندران</option>
+            <option value="گلستان">گلستان</option>
+            <option value="اردبیل">اردبیل</option>
+            <option value="آذربایجان غربی">آذربایجان غربی</option>
+            <option value="همدان">همدان</option>
+            <option value="کردستان">کردستان</option>
+            <option value="کرمانشاه">کرمانشاه</option>
+            <option value="لرستان">لرستان</option>
+            <option value="بوشهر">بوشهر</option>
+            <option value="کرمان">کرمان</option>
+            <option value="هرمزگان">هرمزگان</option>
+            <option value="چهارمحال و بختیاری">چهارمحال و بختیاری</option>
+            <option value="یزد">یزد</option>
+            <option value="سیستان و بلوچستان">سیستان و بلوچستان</option>
+            <option value="ایلام">ایلام</option>
+            <option value="کهگلویه و بویراحمد">کهگلویه و بویراحمد</option>
+            <option value="خراسان شمالی">خراسان شمالی</option>
+            <option value="خراسان جنوبی">خراسان جنوبی</option>
+            <option value="البرز">البرز</option>
+          </select><br><br>
+          <div class="education"> <label for="tex">لطفا تحصیلات خودتون رو انتخاب کنید </label> <select name="state"
+              onChange="List-educational(this.value);">
+              <option value="0"> تحصیلات شما </option>
+              <option value="1">دیپلم</option>
+              <option value="2">فوق دیپلم</option>
+              <option value="3">لیسانس</option>
+              <option value="4">فوق لیسانس</option>
+              <option value="5">کارشناسی</option>
+              <option value="6">کارشناسی ارشد </option>
+              <option value="7">دکتری</option>
+            </select> </div>
+          <button type="submit">بروزرسانی پروفایل</button>
+        </form>
+      </section>
+
+      <script>
+        document.addEventListener('DOMContentLoaded', () => {
+          // فقط عدد برای شماره تلفن
+          const phoneInput = document.getElementById('phoneProfile');
+          phoneInput.addEventListener('input', function () {
+            this.value = this.value.replace(/\D/g, '');
+          });
+
+          // فقط عدد برای کد ملی
+          const nationalCodeInput = document.getElementById('nationalCodeProfile');
+          nationalCodeInput.addEventListener('input', function () {
+            this.value = this.value.replace(/\D/g, '').slice(0, 10);
+          });
+
+          // فقط عدد برای کد پوستی
+          const postalCodeInput = document.getElementById('postalCodeProfile');
+          postalCodeInput.addEventListener('input', function () {
+            this.value = this.value.replace(/\D/g, '').slice(0, 15);
+          });
+        });
+      </script>
+
+    </main>
+  </div>
+
+  <script src="User panel.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,1177 @@
+/* =================== ریشه و متغیرها =================== */
+:root {
+  --bg: #0f1724;
+  --card: #0b1220;
+  --accent: #0ABAB5;
+  --muted: #9aa4b2;
+  --font: 'Vazirmatn', sans-serif;
+}
+
+/* =================== تنظیمات پایه =================== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  height: 100%;
+  font-family: var(--font);
+  background: linear-gradient(180deg, var(--bg), #0f1724);
+  color: #e6eef6;
+  scroll-behavior: smooth;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* ====== هدر ====== */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 50px;
+  background-color: #0f1724;
+  flex-wrap: wrap;
+  position: relative;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo img {
+  height: 45px;
+}
+
+.logo h1 {
+  font-size: 24px;
+}
+
+#SEO {
+  color: #3b82f6;
+}
+
+.header ul {
+  display: flex;
+  list-style: none;
+  gap: 25px;
+  margin: 0;
+  padding: 0;
+}
+
+.header ul li a:hover {
+  color: #3b82f6;
+}
+
+.buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.buttons a {
+  padding: 8px 15px;
+  border: 1px solid #3b82f6;
+  border-radius: 5px;
+  transition: 0.3s;
+}
+
+.buttons a:hover {
+  background-color: #3b82f6;
+  color: #fff;
+}
+
+/* ====== منو موبایل ====== */
+.menu-toggle {
+  display: none;
+  font-size: 26px;
+  color: #3b82f6;
+  cursor: pointer;
+}
+
+@media (max-width: 900px) {
+  .header {
+    padding: 15px 20px;
+  }
+
+  .header ul {
+    display: none;
+    flex-direction: column;
+    background: #111827;
+    width: 100%;
+    text-align: center;
+    gap: 10px;
+    padding: 15px 0;
+    border-top: 1px solid #3b82f6;
+  }
+
+  .header ul.active {
+    display: flex;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  .buttons {
+    display: none;
+  }
+}
+
+/* ویجت مشاوره دایره‌ای */
+.box-widget-icon {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  z-index: 9999;
+}
+
+.widget-icon {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: #1E293B;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 28px;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s, background-color 0.3s;
+}
+
+.widget-icon:hover {
+  transform: scale(1.1);
+  background-color: #0f1724;
+}
+
+/* پنجره چت */
+.chat-box {
+  position: fixed;
+  bottom: 100px;
+  right: 25px;
+  width: 320px;
+  max-width: 90%;
+  height: 420px;
+  background-color: #1e293b;
+  border-radius: 15px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+  display: none;
+  flex-direction: column;
+  overflow: hidden;
+  z-index: 9998;
+}
+
+.chat-box.show {
+  display: flex;
+  animation: fadeInChat 0.3s ease;
+}
+
+.chat-header {
+  background-color: #3b82f6;
+  color: white;
+  padding: 12px;
+  font-size: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.chat-header button {
+  background: transparent;
+  border: none;
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.chat-body {
+  flex: 1;
+  padding: 15px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  direction: rtl;
+}
+
+.message {
+  padding: 10px 14px;
+  border-radius: 10px;
+  max-width: 80%;
+  line-height: 1.5;
+  font-size: 14px;
+}
+
+.message.bot {
+  background-color: #0f172a;
+  color: #e6eef6;
+  align-self: flex-start;
+}
+
+.message.user {
+  background-color: #3b82f6;
+  color: #fff;
+  align-self: flex-end;
+}
+
+.chat-input {
+  display: flex;
+  border-top: 1px solid #334155;
+}
+
+.chat-input input {
+  flex: 1;
+  padding: 10px;
+  border: none;
+  outline: none;
+  background-color: #0f1724;
+  color: #fff;
+  direction: rtl;
+}
+
+.chat-input button {
+  background-color: #3b82f6;
+  border: none;
+  color: #fff;
+  padding: 10px 15px;
+  cursor: pointer;
+}
+
+.chat-input button:hover {
+  background-color: #6060f4;
+}
+
+/* انیمیشن باز و بسته شدن چت */
+@keyframes fadeInChat {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* واکنش‌گرا برای موبایل */
+@media (max-width: 600px) {
+  .widget-icon {
+    width: 50px;
+    height: 50px;
+    font-size: 24px;
+  }
+
+  .chat-box {
+    width: 90%;
+    right: 5%;
+    bottom: 80px;
+    height: 350px;
+  }
+}
+
+
+/* ====== بنر اصلی ====== */
+.hero {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 80px 20px;
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('./img/InShot_20251109_185151622.jpg') no-repeat center/cover;
+}
+
+.hero h2 {
+  font-size: 40px;
+  margin-bottom: 20px;
+  color: #fff;
+}
+
+.hero p {
+  font-size: 18px;
+  margin-bottom: 30px;
+  color: #ddd;
+}
+
+.hero a {
+  padding: 12px 30px;
+  background-color: #3b82f6;
+  border-radius: 5px;
+  color: #fff;
+  transition: 0.3s;
+}
+
+.hero a:hover {
+  background-color: #6060f4;
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(59, 130, 246, 0.4);
+}
+
+/* ====== بخش محصولات ====== */
+
+.products {
+  padding: 70px 40px;
+  text-align: center;
+}
+
+.product li {
+  display: block;
+}
+
+.products h3 {
+  font-size: 32px;
+  margin-bottom: 30px;
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.product {
+  background-color: #1e293b;
+  padding: 20px;
+  border-radius: 10px;
+  transition: 0.3s;
+}
+
+.product:hover {
+  transform: translateY(-5px);
+}
+
+.product img {
+  width: 100%;
+  border-radius: 5px;
+  margin-bottom: 15px;
+}
+
+.product h4 {
+  margin: 0 0 10px;
+}
+
+.product p {
+  font-size: 14px;
+  color: #ccc;
+}
+
+.product a {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 8px 15px;
+  background-color: #3b82f6;
+  border-radius: 5px;
+  color: #fff;
+  transition: 0.3s;
+}
+
+.product a:hover {
+  background-color: #6060f4;
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(59, 130, 246, 0.4);
+}
+
+/* ====== بخش ویژگی‌ها ====== */
+.features {
+  padding: 50px 20px;
+  text-align: center;
+  background-color: #111827;
+}
+
+.features h3 {
+  font-size: 32px;
+  margin-bottom: 30px;
+}
+
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+.feature {
+  background-color: #1e293b;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+ /* ====== درباره ما ====== */
+.center3 {
+  background-color: #0f1724;
+  color: #fff;
+  padding: 80px 100px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  direction: rtl;
+}
+
+.content-box {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  max-width: 1300px;
+  align-items: flex-start;
+}
+
+.content-box video {
+  flex: 1;
+  width: 100%;
+  max-width: 550px;
+  border-radius: 15px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+  object-fit: cover;
+}
+
+/* جعبه معرفی کنار ویدیو */
+.intro-box {
+  flex: 1;
+  background-color: #1e293b;
+  border-radius: 15px;
+  padding: 35px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+  text-align: justify;
+  line-height: 1.9;
+  font-size: 17px;
+  color: #d1d5db;
+  min-width: 300px;
+}
+
+.intro-box h4 {
+  color: #3b82f6;
+  font-size: 22px;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+/* جعبه توضیحات سئو */
+.text-part {
+  flex: 1 1 100%;
+  background-color: #1e293b;
+  border-radius: 15px;
+  padding: 40px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+  margin-top: 40px;
+}
+
+.text-part h5 {
+  color: #3b82f6;
+  font-size: 22px;
+  margin-bottom: 15px;
+}
+
+.text-part p {
+  line-height: 1.9;
+  color: #d1d5db;
+  font-size: 16px;
+  text-align: justify;
+}
+
+/* دکمه “بیشتر” */
+.more-btn {
+  background-color: #3b82f6;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 25px;
+  margin-top: 15px;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.3s;
+}
+
+.more-btn:hover {
+  background-color: #6060f4;
+  transform: translateY(-3px);
+}
+
+/* متن مخفی */
+.more-text {
+  display: none;
+  margin-top: 15px;
+  animation: fadeIn 0.4s ease-in;
+}
+
+.more-text.show {
+  display: block;
+}
+
+/* انیمیشن ساده */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ===== واکنش‌گرا ===== */
+@media (max-width: 1100px) {
+  .center3 {
+    padding: 60px 50px;
+  }
+}
+
+@media (max-width: 900px) {
+  .center3 {
+    flex-direction: column;
+    padding: 50px 30px;
+    align-items: center;
+  }
+
+  .content-box {
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+  }
+
+  .content-box video {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .intro-box {
+    width: 100%;
+    padding: 25px;
+    text-align: center;
+  }
+
+  .intro-box h4 {
+    font-size: 20px;
+  }
+
+  .text-part {
+    margin-top: 25px;
+    padding: 25px;
+  }
+
+  .text-part h5 {
+    font-size: 20px;
+  }
+
+  .text-part p,
+  .intro-box p {
+    font-size: 15px;
+    line-height: 1.8;
+  }
+}
+
+@media (max-width: 600px) {
+  .center3 {
+    padding: 30px 15px;
+  }
+
+  .intro-box,
+  .text-part {
+    padding: 20px;
+  }
+
+  .intro-box h4,
+  .text-part h5 {
+    font-size: 18px;
+  }
+
+  .text-part p,
+  .intro-box p {
+    font-size: 14px;
+  }
+}
+
+
+/* دکمه */
+.more-btn {
+  background-color: #3b82f6;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 20px;
+  margin-top: 15px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.more-btn:hover {
+  background-color: #6060f4;
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(59, 130, 246, 0.4);
+}
+
+/* متن مخفی */
+.more-text {
+  display: none;
+  margin-top: 15px;
+}
+
+/* وقتی فعال شد */
+.more-text.show {
+  display: block;
+  animation: fadeIn 0.4s ease-in;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* واکنش‌گرا */
+@media (max-width: 900px) {
+  .content-box {
+    flex-direction: column-reverse;
+    text-align: center;
+  }
+
+  .text-part {
+    text-align: center;
+  }
+}
+
+
+.center6 {
+  background-color: rgba(30, 41, 59, 0.74);
+  width: 80%;
+  height: 600px;
+  position: relative;
+  display: flex;
+  margin-left: 193px;
+  border-radius: 10px;
+}
+
+.comment-box {
+  width: 100%;
+  max-width: 500px;
+  margin: auto;
+}
+
+.comment-box textarea,
+input[type="text"] {
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  box-sizing: border-box;
+  border-radius: 10px;
+}
+
+.comment-box button {
+  background-color: #3b82f6;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 20px;
+  margin-top: 15px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+/* .comment-box button :hover{
+    background-color: #6060f4;
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(59, 130, 246, 0.4);
+} */
+
+.textarea {
+  transition: all 250ms ease-out;
+}
+
+.upload-box {
+  font-family: Tahoma, sans-serif;
+  direction: rtl;
+}
+
+.upload-box {
+  max-width: 400px;
+  margin: auto;
+  border: 2px dashed #ccc;
+  padding: 20px;
+  text-align: center;
+  border-radius: 10px;
+  width: 500px;
+}
+
+input[type="file"] {
+  margin: 20px 0;
+}
+
+.upload-box button {
+  margin-top: 10px;
+  border-radius: 10px;
+  background-color: rgb(96, 96, 244);
+  padding: 10px 20px;
+  color: white;
+  cursor: pointer;
+}
+
+.upload-box button:hover {
+  background-color: #6060f4;
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(59, 130, 246, 0.4);
+}
+
+/* comint */
+/* ====== ریسپانسیو بخش نظرات و آپلود ====== */
+@media (max-width: 900px) {
+  .center6 {
+    flex-direction: column;
+    width: 95%;
+    height: auto;
+    margin: 20px auto;
+    padding: 20px;
+  }
+
+  .comment-box,
+  .upload-box {
+    width: 100%;
+    max-width: 100%;
+    margin: 10px 0;
+    padding: 20px;
+  }
+
+  .upload-box {
+    border: 2px dashed #ecf1f8;
+  }
+
+  .comment-box textarea,
+  .comment-box input[type="text"] {
+    font-size: 16px;
+  }
+
+  .comment-box button,
+  .upload-box button {
+    width: 100%;
+  }
+}
+
+@media (max-width: 500px) {
+  .center6 {
+    padding: 10px;
+  }
+
+  .comment-box textarea {
+    height: 120px;
+  }
+}
+
+/* === مرکز کردن دقیق فرم نظرات در همه اندازه‌ها === */
+.center6 {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  margin: 40px auto;
+  width: 80%;
+  gap: 30px;
+}
+
+@media (max-width: 1200px) {
+  .center6 {
+    width: 90%;
+    margin: 30px auto;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 900px) {
+  .center6 {
+    flex-direction: column;
+    width: 95%;
+    align-items: center;
+  }
+
+  .comment-box,
+  .upload-box {
+    width: 100%;
+    max-width: 500px;
+  }
+}
+ /* عک و کامنت  */
+.center7 {
+  background-color: rgba(30, 41, 59, 0.85);
+  border: 2px solid #f2f5fc; /* حاشیه مشخص */
+  border-radius: 15px;
+  padding: 30px;
+  margin: 40px auto; /* فاصله از بیرون */
+  width: 80%;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+}
+
+/* تیتر هر بخش */
+.center7 h3 {
+  color: #dde2e9;
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+/* باکس‌های عکس و کامنت */
+.center7 #uploadedImages,
+.center7 #userComments {
+  border: 1px solid #ffffff;
+  border-radius: 10px;
+  padding: 10px;
+  background-color: #0f1724;
+  margin-bottom: 20px;
+  overflow-y: auto;
+}
+
+/* ارتفاع اسکرول */
+.center7 #uploadedImages {
+  height: 200px;
+}
+
+.center7 #userComments {
+  height: 150px;
+}
+
+/* عکس‌ها داخل uploadedImages */
+.center7 #uploadedImages img {
+  width: 80px;
+  height: 80px;
+  margin: 5px;
+  object-fit: cover;
+  border-radius: 5px;
+  border: 1px solid #ffffff;
+}
+
+/* ریسپانسیو */
+@media (max-width: 900px) {
+  .center7 {
+    width: 95%;
+    padding: 20px;
+  }
+
+  .center7 #uploadedImages,
+  .center7 #userComments {
+    height: auto;
+  }
+
+  .center7 #uploadedImages img {
+    width: 60px;
+    height: 60px;
+  }
+}
+
+/* زوم کردن غکی */
+
+
+
+
+
+
+
+/* ====== فوتر ====== */
+/* ==== اصلاح دقیق فوتر ==== */
+footer {
+  background-color: #111827;
+  color: #9aa4b2;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px 50px;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.footer-left,
+.footer-right,
+.social-icons {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.footer-left .footer-logo {
+  height: 50px;
+  width: auto;
+  object-fit: contain;
+}
+
+.teacher-photo img {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 5px;
+}
+
+.teacher-photo p {
+  font-size: 14px;
+  margin: 0;
+  text-align: center;
+  color: #9aa4b2;
+}
+
+.social-icons a {
+  color: #9aa4b2;
+  font-size: 22px;
+  transition: color 0.3s;
+}
+
+.social-icons a:hover {
+  color: #fff;
+}
+
+@media (max-width: 768px) {
+  footer {
+    flex-direction: column;
+    text-align: center;
+    gap: 15px;
+  }
+
+  .footer-left,
+  .footer-right,
+  .social-icons {
+    justify-content: center;
+  }
+
+  .footer-left .footer-logo {
+    height: 40px;
+  }
+
+  .teacher-photo img {
+    width: 60px;
+    height: 60px;
+  }
+}
+
+/* آیکون مشاور */
+/* ===== ویجت چت ===== */
+.chat-box {
+  position: fixed;
+  bottom: 100px;
+  right: 25px;
+  width: 320px;
+  height: 420px;
+  background-color: #1e293b;
+  border-radius: 15px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+  display: none;
+  flex-direction: column;
+  overflow: hidden;
+  z-index: 999;
+}
+
+.chat-header {
+  background-color: #3b82f6;
+  color: white;
+  padding: 12px;
+  font-size: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.chat-header button {
+  background: transparent;
+  border: none;
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.chat-body {
+  flex: 1;
+  padding: 15px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  direction: rtl;
+}
+
+.message {
+  padding: 10px 14px;
+  border-radius: 10px;
+  max-width: 80%;
+  line-height: 1.5;
+  font-size: 14px;
+}
+
+.message.bot {
+  background-color: #0f172a;
+  color: #e6eef6;
+  align-self: flex-start;
+}
+
+.message.user {
+  background-color: #3b82f6;
+  color: #fff;
+  align-self: flex-end;
+}
+
+.chat-input {
+  display: flex;
+  border-top: 1px solid #334155;
+}
+
+.chat-input input {
+  flex: 1;
+  padding: 10px;
+  border: none;
+  outline: none;
+  background-color: #0f1724;
+  color: #fff;
+  direction: rtl;
+}
+
+.chat-input button {
+  background-color: #3b82f6;
+  border: none;
+  color: #fff;
+  padding: 10px 15px;
+  cursor: pointer;
+}
+
+.chat-input button:hover {
+  background-color: #6060f4;
+}
+
+/* انیمیشن باز و بسته شدن */
+@keyframes fadeInChat {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.chat-box.show {
+  display: flex;
+  animation: fadeInChat 0.3s ease;
+}
+
+/*  */
+/* واکنش‌گرا برای بخش درباره ما */
+@media (max-width: 900px) {
+  .center3 {
+    padding: 40px 20px;
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .content-box {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .content-box video {
+    max-width: 100%;
+    margin-top: 0;
+  }
+
+  .intro-box {
+    width: 100%;
+    height: auto !important; /* ارتفاع خودکار */
+    padding: 20px;
+    font-size: 15px;
+    text-align: center;
+  }
+
+  .text-part {
+    width: 100%;
+    min-width: unset;
+    padding: 20px;
+    font-size: 15px;
+  }
+
+  .text-part p, 
+  .intro-box p {
+    font-size: 15px;
+    line-height: 1.7;
+    word-wrap: break-word;
+  }
+}
+
+@media (max-width: 600px) {
+  .center3 {
+    padding: 20px 10px;
+  }
+
+  .intro-box, .text-part {
+    padding: 15px;
+  }
+
+  .content-box video {
+    width: 100%;
+    height: auto;
+  }
+}
+/*  */
+/* واکنش‌گرا برای تبلت (بین 700 تا 1000 پیکسل) */
+@media (max-width: 1000px) {
+  .header {
+    flex-wrap: wrap;
+    padding: 15px 25px;
+  }
+
+  .header ul {
+    display: none; /* منو پنهان شود */
+    flex-direction: column;
+    width: 100%;
+    background: #111827;
+    text-align: center;
+    gap: 12px;
+    padding: 15px 0;
+    border-top: 1px solid #3b82f6;
+  }
+
+  .header ul.active {
+    display: flex; /* فعال شدن منو هنگام کلیک روی آیکون */
+  }
+
+  .menu-toggle {
+    display: block; /* آیکون منو نشان داده شود */
+    font-size: 30px;
+    cursor: pointer;
+  }
+
+  .buttons {
+    display: none; /* دکمه‌های ورود و پنل پنهان شوند تا جا باز شود */
+  }
+
+  .logo h1 {
+    font-size: 20px;
+  }
+
+  .logo img {
+    height: 40px;
+  }
+}
+
+/* برای گوشی‌های کوچکتر از 700px */
+@media (max-width: 700px) {
+  .header {
+    padding: 10px 15px;
+  }
+
+  .menu-toggle {
+    font-size: 26px;
+  }
+
+  .header ul {
+    gap: 10px;
+    padding: 10px 0;
+  }
+
+  .header ul li a {
+    font-size: 16px;
+  }
+}

@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="fa">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>صفحه مورد نظر یافت نشد | 404</title>
+  <link rel="icon" href="./logonj.png" type="image/png">
+  <style>
+    :root {
+      --accent: rgb(10, 186, 181);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      /* 🚫 جلوگیری از اسکرول */
+      background-color: #0f1724;
+      font-family: sans-serif;
+      color: white;
+    }
+
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      flex-direction: column;
+      min-height: 100vh;
+      padding: 20px;
+    }
+
+    .error-404 {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+      /* فاصله ثابت بین عناصر: متن، تصویر، دکمه */
+    }
+
+    img {
+      width: 60px;
+      max-width: 40%;
+      height: auto;
+    }
+
+    .error-404 a {
+      display: inline-block;
+      padding: 12px 35px;
+      font-size: 18px;
+      background: transparent;
+      color: white;
+      border-radius: 10px;
+      border: 1px solid var(--accent);
+      text-decoration: none;
+      transition: all 0.3s ease;
+      user-select: none;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+
+    .error-404 h1 {
+      color: #4bc3f7;
+      font-size: 3rem;
+      margin-bottom: 10px;
+    }
+
+    .error-404 p {
+      font-size: 1.5rem;
+      margin: 10px 0 30px 0;
+    }
+
+
+
+    /* ✅ افکت hover + active + focus */
+    .error-404 a:hover,
+    .error-404 a:focus,
+    .error-404 a:active {
+      color: white;
+      background-color: var(--accent);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 12px rgba(10, 186, 181, 0.3);
+    }
+
+
+
+    /* 📱 ریسپانسیو برای موبایل */
+    @media (max-width: 768px) {
+      .error-404 h1 {
+        font-size: 2.2rem;
+      }
+
+      .error-404 p {
+        font-size: 1.2rem;
+      }
+
+      .error-404 a {
+        font-size: 16px;
+        padding: 10px 25px;
+      }
+
+      img {
+        width: 250px;
+        margin-top: 20px;
+      }
+    }
+
+    /* 📱 برای موبایل‌های خیلی کوچک */
+    @media (max-width: 480px) {
+      .error-404 h1 {
+        font-size: 1.8rem;
+      }
+
+      .error-404 p {
+        font-size: 1rem;
+      }
+
+      img {
+        width: 200px;
+      }
+    }
+
+    /* 👇 حالت فعال لمسی */
+    .active-touch {
+      background-color: var(--accent) !important;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 12px rgba(10, 186, 181, 0.3);
+      transition: all 0.15s ease;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="error-404">
+    <h1>خطای 404 </h1>
+    <p>اوه "صفحه‌ای که دنبالش بودید پیدا نشد "</p>
+
+    <script src="https://unpkg.com/@lottiefiles/dotlottie-wc@0.8.5/dist/dotlottie-wc.js" type="module"></script>
+    <dotlottie-wc src="https://lottie.host/22d251a8-c8cc-482b-ab39-91e23b243b5d/2GMQHXAX3Y.lottie"
+      style="width: 300px;height: 300px" autoplay loop></dotlottie-wc>
+    <a href="./Magical SEO.html" id="back-btn">بازگشت به صفحه اصلی</a>
+
+
+    <img src="./img/logonj.png" alt="صفحه پیدا نشد">
+  </div>
+
+
+  <script>
+    // 📱 برای حالت لمس در گوشی
+    const btn = document.getElementById("back-btn");
+
+    btn.addEventListener("touchstart", () => {
+      btn.classList.add("active-touch");
+    });
+
+    btn.addEventListener("touchend", () => {
+      btn.classList.remove("active-touch");
+    });
+  </script>
+</body>
+
+</html>

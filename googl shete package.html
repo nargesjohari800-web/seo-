@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="fa">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>پکیج آموزش گوگل شیت </title>
+    <meta name="description"
+        content="پکیج آموزش گوگل شیت رایگان | یادگیری سریع توابع، نمودار، فیلتر و مرتب‌سازی داده‌ها در Google Sheets برای دانشجویان، مدیران و کسب‌وکارها.">
+    <link rel="stylesheet" href="./googl shete package.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body drl>
+    <!-- هدر -->
+    <div class="header">
+        <div class="logo">
+            <a href="./Magical SEO.html"><img src="./img/njjn.png" alt="logo"></a>
+            <h1> <a href="./Magical SEO.html">جادوگری<span id="SEO">سئو</span></h1></a>
+        </div>
+
+        <div class="menu-toggle" id="menu-toggle">☰</div>
+
+        <ul id="menu">
+      <li><a href="./need.html">نیاز شما</a></li>
+      <li><a href="#Counseling" id="openChatLink">مشاوره</a></li>
+      <li><a href="./Magical SEO.html#about">درباره ما</a></li>
+      <li><a href="book shop.html">فروشگاه کتاب</a></li>
+      <li><a href="./Magical SEO.html#pack">پکیچ آموزشی</a></li>
+      <li><a href="./seo package.html">SEO سئو</a></li>
+        </ul>
+
+        <div class="buttons">
+            <a href="./User panel.html">پنل کاربر</a>
+            <a href="./Create an account.html">ورود</a>
+        </div>
+    </div>
+<!-- محل نمایش breadcrumb -->
+<nav aria-label="breadcrumb" dir="rtl" style="padding-right: 50px;">
+  <ol class="breadcrumb" id="breadcrumb">
+    <li><a href="Magical SEO.html">خانه</a></li> <!-- لینک جدید اینجا -->
+  </ol>
+</nav>
+    <div class="container" dir="rtl">
+        <h1>آموزش رایگان (google sheets)گوگل شیت</h1>
+        <!-- پلیر بالای صفحه -->
+        <div id="video-player" class="video-player hidden">
+            <video id="player" controls preload="metadata">
+                <source src="" type="video/mp4">
+                مرورگر شما از ویدیو پشتیبانی نمی‌کند.
+            </video>
+            <div class="controls">
+                <button id="playPauseBtn" onclick="togglePlay()">
+                    <svg id="playIcon" width="28" height="28" viewBox="0 0 24 24" fill="white"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M7 6.13402V17.866C7 18.7606 8.02908 19.3042 8.82159 18.8172L18.45 12.9512C19.1833 12.5096 19.1833 11.4904 18.45 11.0374L8.82159 5.18278C8.02908 4.69583 7 5.2394 7 6.13402Z">
+                        </path>
+                    </svg>
+                </button>
+
+                <button onclick="skip(-10)"> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white"
+                        width="28" height="28">
+                        <path
+                            d="M16.1036 5.49445C17.2212 6.06273 18.2078 6.85825 19 7.83003C19.9697 9.02453 20.6169 10.4477 20.88 11.9636C21.143 13.4794 21.0131 15.0374 20.5026 16.4888C19.992 17.9402 19.1179 19.2364 17.9638 20.2538C16.8096 21.2712 15.414 21.9757 13.91 22.3C13.2816 22.4303 12.6417 22.4973 12 22.5C9.61305 22.5 7.32387 21.5518 5.63604 19.864C3.94821 18.1762 3 15.887 3 13.5C3 13.2348 3.10536 12.9805 3.29289 12.7929C3.48043 12.6054 3.73478 12.5 4 12.5C4.26522 12.5 4.51957 12.6054 4.70711 12.7929C4.89464 12.9805 5 13.2348 5 13.5C5.0024 14.539 5.23607 15.5645 5.68406 16.502C6.13204 17.4395 6.7831 18.2655 7.59 18.92C8.41222 19.5795 9.37113 20.0473 10.3969 20.2895C11.4228 20.5317 12.4897 20.5421 13.52 20.32C14.8212 20.0317 16.0131 19.3779 16.9555 18.4355C17.8979 17.4931 18.5517 16.3012 18.84 15C19.0604 13.9728 19.0491 12.9094 18.807 11.887C18.5648 10.8647 18.0978 9.90922 17.44 9.09003C16.8364 8.34948 16.0877 7.74032 15.2398 7.30006C14.392 6.85979 13.463 6.59773 12.51 6.53003V8.53003C12.51 8.71574 12.4583 8.89778 12.3607 9.05576C12.263 9.21374 12.1233 9.3414 11.9572 9.42446C11.7911 9.50751 11.6052 9.54267 11.4202 9.52599C11.2352 9.50931 11.0586 9.44146 10.91 9.33003L6.91 6.33003C6.7858 6.23688 6.685 6.1161 6.61557 5.97724C6.54615 5.83839 6.51 5.68528 6.51 5.53003C6.51 5.37478 6.54615 5.22167 6.61557 5.08282C6.685 4.94396 6.7858 4.82318 6.91 4.73003L10.91 1.73003C11.0586 1.6186 11.2352 1.55075 11.4202 1.53407C11.6052 1.51739 11.7911 1.55255 11.9572 1.6356C12.1233 1.71866 12.263 1.84632 12.3607 2.0043C12.4583 2.16227 12.51 2.34432 12.51 2.53003V4.53003C13.762 4.59768 14.986 4.92618 16.1036 5.49445ZM13.25 17.75C12.7942 17.7468 12.3532 17.5881 12 17.3C11.6468 17.5881 11.2058 17.7468 10.75 17.75C10.2196 17.75 9.71086 17.5393 9.33579 17.1642C8.96071 16.7892 8.75 16.2805 8.75 15.75V14C8.75 13.1381 9.09241 12.3114 9.7019 11.7019C10.3114 11.0924 11.138 10.75 12 10.75C12.862 10.75 13.6886 11.0924 14.2981 11.7019C14.9076 12.3114 15.25 13.1381 15.25 14V15.75C15.25 16.2805 15.0393 16.7892 14.6642 17.1642C14.2891 17.5393 13.7804 17.75 13.25 17.75ZM10.25 14V15.75C10.25 15.8826 10.3027 16.0098 10.3964 16.1036C10.4902 16.1974 10.6174 16.25 10.75 16.25C10.8826 16.25 11.0098 16.1974 11.1036 16.1036C11.1973 16.0098 11.25 15.8826 11.25 15.75V15.25C11.25 15.0511 11.329 14.8604 11.4697 14.7197C11.6103 14.579 11.8011 14.5 12 14.5C12.1989 14.5 12.3897 14.579 12.5303 14.7197C12.671 14.8604 12.75 15.0511 12.75 15.25V15.75C12.75 15.8826 12.8027 16.0098 12.8964 16.1036C12.9902 16.1974 13.1174 16.25 13.25 16.25C13.3826 16.25 13.5098 16.1974 13.6036 16.1036C13.6973 16.0098 13.75 15.8826 13.75 15.75V14C13.75 13.5359 13.5656 13.0908 13.2374 12.7626C12.9092 12.4344 12.4641 12.25 12 12.25C11.5359 12.25 11.0908 12.4344 10.7626 12.7626C10.4344 13.0908 10.25 13.5359 10.25 14Z">
+                        </path>
+                    </svg></button>
+                <!-- <button onclick="togglePlay()"> <svg width="28" height="28" viewBox="0 0 24 24" fill="white"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M7 6.13402V17.866C7 18.7606 8.02908 19.3042 8.82159 18.8172L18.45 12.9512C19.1833 12.5096 19.1833 11.4904 18.45 11.0374L8.82159 5.18278C8.02908 4.69583 7 5.2394 7 6.13402Z">
+                        </path>
+                    </svg></button> -->
+                <button onclick="skip(10)">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M19.2929 12.7929C19.4804 12.6054 19.7348 12.5 20 12.5C20.2617 12.5053 20.511 12.6129 20.6942 12.7999C20.8774 12.9869 20.98 13.2382 20.98 13.5C20.98 15.887 20.0318 18.1762 18.344 19.864C16.6561 21.5518 14.3669 22.5 11.98 22.5C11.3382 22.4973 10.6984 22.4303 10.07 22.3C7.95022 21.8285 6.07241 20.6065 4.78287 18.8592C3.49332 17.112 2.87899 14.9574 3.05318 12.7928C3.22737 10.6282 4.17833 8.59964 5.73068 7.0811C7.28304 5.56256 9.3321 4.65651 11.5 4.53003V2.53003C11.5 2.34432 11.5517 2.16227 11.6493 2.0043C11.747 1.84632 11.8867 1.71866 12.0528 1.6356C12.2189 1.55255 12.4048 1.51739 12.5898 1.53407C12.7748 1.55075 12.9514 1.6186 13.1 1.73003L17.1 4.73003C17.2242 4.82318 17.325 4.94396 17.3944 5.08282C17.4638 5.22167 17.5 5.37478 17.5 5.53003C17.5 5.68528 17.4638 5.83839 17.3944 5.97724C17.325 6.1161 17.2242 6.23688 17.1 6.33003L13.1 9.33003C12.9514 9.44146 12.7748 9.50931 12.5898 9.52599C12.4048 9.54267 12.2189 9.50751 12.0528 9.42446C11.8867 9.3414 11.747 9.21374 11.6493 9.05576C11.5517 8.89778 11.5 8.71574 11.5 8.53003V6.53003C10.547 6.59773 9.61803 6.85979 8.77017 7.30006C7.92232 7.74032 7.17355 8.34948 6.56999 9.09003C5.91044 9.90838 5.44166 10.8635 5.19775 11.8858C4.95383 12.9082 4.94094 13.9721 5.15999 15C5.4449 16.3049 6.09718 17.5011 7.03984 18.4473C7.9825 19.3935 9.17618 20.0502 10.48 20.34C11.5103 20.5621 12.5772 20.5517 13.603 20.3095C14.6289 20.0673 15.5878 19.5995 16.41 18.94C17.2195 18.2833 17.8721 17.4541 18.3202 16.5129C18.7683 15.5718 19.0006 14.5424 19 13.5C19 13.2348 19.1053 12.9805 19.2929 12.7929ZM8.74998 15.75V14C8.74998 13.1381 9.09239 12.3114 9.70189 11.7019C10.3114 11.0924 11.138 10.75 12 10.75C12.8619 10.75 13.6886 11.0924 14.2981 11.7019C14.9076 12.3114 15.25 13.1381 15.25 14V15.75C15.25 16.2805 15.0393 16.7892 14.6642 17.1642C14.2891 17.5393 13.7804 17.75 13.25 17.75C12.7942 17.7468 12.3532 17.5881 12 17.3C11.6468 17.5881 11.2058 17.7468 10.75 17.75C10.2196 17.75 9.71084 17.5393 9.33577 17.1642C8.9607 16.7892 8.74998 16.2805 8.74998 15.75ZM13.75 15.75V14C13.75 13.5359 13.5656 13.0908 13.2374 12.7626C12.9092 12.4344 12.4641 12.25 12 12.25C11.5359 12.25 11.0907 12.4344 10.7625 12.7626C10.4344 13.0908 10.25 13.5359 10.25 14V15.75C10.25 15.8826 10.3027 16.0098 10.3964 16.1036C10.4902 16.1974 10.6174 16.25 10.75 16.25C10.8826 16.25 11.0098 16.1974 11.1035 16.1036C11.1973 16.0098 11.25 15.8826 11.25 15.75V15.25C11.25 15.0511 11.329 14.8604 11.4697 14.7197C11.6103 14.579 11.8011 14.5 12 14.5C12.1989 14.5 12.3897 14.579 12.5303 14.7197C12.671 14.8604 12.75 15.0511 12.75 15.25V15.75C12.75 15.8826 12.8027 16.0098 12.8964 16.1036C12.9902 16.1974 13.1174 16.25 13.25 16.25C13.3826 16.25 13.5098 16.1974 13.6035 16.1036C13.6973 16.0098 13.75 15.8826 13.75 15.75Z" />
+                    </svg>
+                </button>
+
+                </button>
+                <button onclick="closePlayer()"> X </button>
+                <button onclick="toggleFullScreen()">⛶</button>
+
+                <div class="share-menu">
+                    <button id="share-toggle"> اشتراک‌گذاری</button>
+                    <div class="share-options hidden">
+                        <a id="share-whatsapp" target="_blank" title="واتساپ"><i class="fa fa-whatsapp"></i> واتساپ</a>
+                        <a id="share-telegram" target="_blank" title="تلگرام"><i class="fa fa-telegram"></i> تلگرام</a>
+                        <a id="share-sms" target="_blank" title="پیامک"><i class="fa fa-commenting"></i> پیامک</a>
+                        <a id="share-email" target="_blank" title="ایمیل"><i class="fa fa-envelope"></i> ایمیل</a>
+                        <button id="copy-link"> کپی لینک</button>
+                    </div>
+                </div>
+
+
+            </div>
+
+            <div class="video-info">
+                <div>
+                    <button id="like-btn" onclick="likeVideo()">❤️ لایک</button>
+                    <span id="like-count">0</span>
+                    <span class="views">👁 0 بازدید</span>
+                </div>
+            </div>
+
+            <div class="comments">
+                <h3>نظرات کاربران</h3>
+                <div id="comment-list"></div>
+                <form id="comment-form" onsubmit="addComment(event)">
+                    <input type="text" id="username" placeholder="نام شما" required>
+                    <textarea id="comment-text" placeholder="نظر یا سوال خود را بنویسید..." required></textarea>
+                    <button type="submit">ارسال</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- فصل‌ها و زیرفصل‌ها -->
+        <div class="chapter">
+            <div class="chapter-header" onclick="toggleChapter(this)">
+                <span>فصل 1: آشنایی و راه اندازی</span>
+                <span class="arrow">▼</span>
+            </div>
+            <div class="sublist">
+                <div class="video-item" onclick="playVideo(this, 'videos/v1.mp4')">گوگل شیت یا اکسل؟</div>
+                <div class="video-item" onclick="playVideo(this, 'videos/internal.mp4')">نصب و ساخت اکانت</div>
+                <div class="video-item" onclick="playVideo(this, 'videos/external.mp4')">تغییر زبان </div>
+                <div class="video-item" onclick="playVideo(this, 'videos/external.mp4')">نگهداری و دسته بندی در گوگل شیت
+                </div>
+                <div class="video-item" onclick="playVideo(this, 'videos/external.mp4')">سطر و ستون ها در گوگل شیت</div>
+
+                <div class="quiz-section">
+                    <button id="open-quiz"> شروع کوئیز</button>
+
+                    <div id="quiz-modal" class="hidden">
+                        <h2>آزمون ویدیو</h2>
+
+                        <form id="quiz-form">
+                            <div class="question">
+                                <p>1️⃣ حاصل ۲ + ۲ چیست؟</p>
+                                <label><input type="radio" name="q1" value="3"> ۳</label><br>
+                                <label><input type="radio" name="q1" value="4"> ۴</label><br>
+                                <label><input type="radio" name="q1" value="5"> ۵</label><br>
+                                <label><input type="radio" name="q1" value="6"> ۶</label>
+                            </div>
+
+                            <div class="question">
+                                <p>2️⃣ پایتخت ایران کجاست؟</p>
+                                <label><input type="radio" name="q2" value="مشهد"> مشهد</label><br>
+                                <label><input type="radio" name="q2" value="تهران"> تهران</label><br>
+                                <label><input type="radio" name="q2" value="تبریز"> تبریز</label><br>
+                                <label><input type="radio" name="q2" value="اصفهان"> اصفهان</label>
+                            </div>
+
+                            <button type="button" id="submit-quiz">📤 ارسال</button>
+                        </form>
+
+                        <div id="quiz-result"></div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+
+        <div class="chapter">
+            <div class="chapter-header" onclick="toggleChapter(this)">
+                <span>فصل 2: تنظیمات نمایش و و بهبود خوانایی</span>
+                <span class="arrow">▼</span>
+            </div>
+            <div class="sublist">
+                <div class="video-item" onclick="playVideo(this, 'videos/keyword.mp4')">تنظیمات سلول و بهبود خوانایی
+                </div>
+                <div class="video-item" onclick="playVideo(this, 'videos/tools.mp4')">تنظیمات متون بلند در سلول</div>
+                <div class="video-item" onclick="playVideo(this, 'videos/external.mp4')">فریز کرئن سطر و ستون</div>
+                <div class="video-item" onclick="playVideo(this, 'videos/external.mp4')">اضاقه کردن کامنت به سلول</div>
+                <div class="video-item" onclick="playVideo(this, 'videos/external.mp4')">اضاقه کردن یادداشت اختصاصی
+                </div>
+                <div class="video-item" onclick="playVideo(this, 'videos/external.mp4')">تنظیمات پیشرفته نمایش</div>
+                <div class="video-item" onclick="playVideo(this, 'videos/external.mp4')">کادر یندی و اغدام سلول</div>
+            </div>
+        </div>
+
+        <div class="chapter">
+            <div class="chapter-header" onclick="toggleChapter(this)">
+                <span>فصل 3: تسلط بر داده ها</span>
+                <span class="arrow">▼</span>
+            </div>
+            <div class="sublist">
+                <div class="video-item" onclick="playVideo(this, 'videos/keyword.mp4')">sort , filter </div>
+                <div class="video-item" onclick="playVideo(this, 'videos/tools.mp4')"> data validation</data></div>
+                <div class="video-item" onclick="playVideo(this, 'videos/external.mp4')">فرمول و توابع</div>
+                <div class="video-item" onclick="playVideo(this, 'videos/external.mp4')">اشتراک گذاری و دست رسی </div>
+                <div class="video-item" onclick="playVideo(this, 'videos/external.mp4')">اضاقه کردن یادداشت اختصاصی
+                </div>
+                <div class="video-item" onclick="playVideo(this, 'videos/external.mp4')">اضافه کردن نمودار</div>
+                <div class="video-item" onclick="playVideo(this, 'videos/external.mp4')">نظم دهی ئ ایحاد صفحه جدید</div>
+            </div>
+        </div>
+        <div class="chapter">
+            <div class="chapter-header" onclick="toggleChapter(this)">
+                <span>فصل 4:نکات اصلی توابع و عملگر ها </span>
+                <span class="arrow">▼</span>
+            </div>
+            <div class="sublist">
+                <div class="video-item" onclick="playVideo(this, 'videos/keyword.mp4')">تابع هاب ریاضی </div>
+                <div class="video-item" onclick="playVideo(this, 'videos/tools.mp4')"> if ,else توابع شرطی </data></div>
+                <div class="video-item" onclick="playVideo(this, 'videos/external.mp4')">coumt توابع</div>
+                <div class="video-item" onclick="playVideo(this, 'videos/external.mp4')">sum, sumifتوابع </div>
+                <div class="video-item" onclick="playVideo(this, 'videos/external.mp4')"> توابع کاربردی </div>
+                <div class="video-item" onclick="playVideo(this, 'videos/external.mp4')">نکات آخر صفحه کار</div>
+            </div>
+        </div>
+    </div>
+    <!-- برای متن -->
+    <div class="container">
+        <h3 dir="rtl">پکیج کامل آموزش گوگل شیت (Google Sheets) در مورد </h3>
+        <div class="section">
+            <h2>معرفی گوگل شیت</h2>
+            <p>گوگل شیت (Google Sheets) یک ابزار قدرتمند آنلاین برای مدیریت داده‌ها و محاسبات است که توسط گوگل ارائه شده
+                و به کاربران امکان می‌دهد بدون نیاز به نصب نرم‌افزار، جداول و نمودارهای خود را بسازند و مدیریت کنند. این
+                پکیج آموزش گوگل شیت برای همه افرادی که می‌خواهند مهارت‌های خود را در زمینه تحلیل داده، سازماندهی اطلاعات
+                و همکاری آنلاین ارتقا دهند، طراحی شده است.</p>
+        </div>
+
+        <div class="section">
+            <h2>مزایای استفاده از گوگل شیت</h2>
+            <ul>
+                <li>دسترسی آنلاین و بدون نیاز به نصب نرم‌افزار.</li>
+                <li>امکان اشتراک‌گذاری و همکاری همزمان با دیگران.</li>
+                <li>پشتیبانی از فرمول‌ها و توابع متنوع برای محاسبات پیچیده.</li>
+                <li>امکان ایجاد نمودار و گراف‌های تعاملی.</li>
+                <li>قابلیت اتصال به سایر سرویس‌های گوگل مانند گوگل فرم، گوگل دیتا استودیو و گوگل داکس.</li>
+                <li>نسخه رایگان با فضای ذخیره‌سازی ابری.</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>معایب و محدودیت‌ها</h2>
+            <ul>
+                <li>وابستگی کامل به اینترنت برای دسترسی به داده‌ها.</li>
+                <li>محدودیت در تعداد ردیف‌ها و ستون‌ها نسبت به نرم‌افزارهای پیشرفته‌تر مانند Excel.</li>
+                <li>برخی فرمول‌ها و افزونه‌ها نسبت به Excel محدودتر هستند.</li>
+                <li>سرعت پایین‌تر در فایل‌های خیلی بزرگ یا پیچیده.</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>چه کسانی از گوگل شیت استفاده می‌کنند؟</h2>
+            <p>کاربرد گوگل شیت محدود به یک دسته خاص نیست و طیف گسترده‌ای از افراد و مشاغل می‌توانند از آن بهره ببرند:
+            </p>
+            <ul>
+                <li>دانشجویان و اساتید برای انجام پروژه‌ها و تحقیق‌ها.</li>
+                <li>کارمندان شرکت‌ها و تیم‌های کاری برای مدیریت پروژه و گزارش‌دهی.</li>
+                <li>مدیران مالی و حسابداری برای پیگیری داده‌ها و محاسبات.</li>
+                <li>افرادی که به دنبال تحلیل داده‌های شخصی یا تجاری هستند.</li>
+                <li>توسعه‌دهندگان و برنامه‌نویسان برای ایجاد داشبوردهای آنلاین و اتوماسیون ساده.</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>آنچه در این پکیج آموزشی یاد می‌گیرید</h2>
+            <p>با گذراندن این دوره آموزشی، شما به صورت کامل با گوگل شیت آشنا می‌شوید و توانایی انجام فعالیت‌های زیر را
+                خواهید داشت:</p>
+            <ul>
+                <li>ایجاد و مدیریت فایل‌های گوگل شیت.</li>
+                <li>کار با توابع و فرمول‌های ریاضی، منطقی و شرطی.</li>
+                <li>استفاده از ابزارهای مرتب‌سازی (Sort) و فیلتر (Filter).</li>
+                <li>ایجاد نمودارهای گرافیکی و داشبوردهای تعاملی.</li>
+                <li>اشتراک‌گذاری فایل‌ها و همکاری آنلاین با دیگران.</li>
+                <li>اضافه کردن کامنت و یادداشت به سلول‌ها.</li>
+                <li>تنظیمات پیشرفته نمایش و بهبود خوانایی داده‌ها.</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>چرا این پکیج برای شما مناسب است؟</h2>
+            <p>اگر می‌خواهید مهارت‌های خود را در حوزه مدیریت داده، تحلیل اطلاعات و همکاری آنلاین تقویت کنید، این پکیج
+                برای شما ایده‌آل است. شما با یادگیری گوگل شیت می‌توانید:</p>
+            <ul>
+                <li>زمان انجام کارهای روزانه خود را کاهش دهید.</li>
+                <li>گزارش‌های دقیق و حرفه‌ای بسازید.</li>
+                <li>به راحتی با تیم خود در هر مکان و زمان همکاری کنید.</li>
+                <li>مهارت‌های دیجیتال خود را برای بازار کار ارتقا دهید.</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>جمع‌بندی</h2>
+            <p>گوگل شیت یک ابزار جامع برای مدیریت داده‌ها و همکاری آنلاین است که با مزایای فراوان خود، از جمله دسترسی
+                آسان، رایگان بودن و قابلیت‌های پیشرفته، به یکی از محبوب‌ترین ابزارهای کاری و آموزشی تبدیل شده است. این
+                پکیج آموزشی، شما را قدم به قدم با تمام قابلیت‌ها و تکنیک‌های گوگل شیت آشنا می‌کند تا بتوانید حرفه‌ای عمل
+                کنید و از داده‌ها و اطلاعات خود بیشترین بهره را ببرید.</p>
+        </div>
+    </div>
+
+<!-- فوتر -->
+<footer>
+    <div class="footer-left">
+        <img src="img/samandehi.png" alt="نماد اعتماد" class="footer-logo">
+        <img src="img/logonj.png" alt="لوگو سایت" class="footer-logo">
+    </div>
+    <div class="social-icons">
+        <a href="https://www.instagram.com/magical_seo" target="_blank"><i class="fa fa-instagram"></i></a>
+        <a href="mailto:magicalseo.nj@gmail.com"><i class="fa fa-envelope"></i></a>
+        <a href="https://t.me/@Nj_seo" target="_blank"><i class="fa fa-telegram"></i></a>
+        <a href="https://www.linkedin.com/in/magical_seo" target="_blank"><i class="fa fa-linkedin-square"></i></a>
+    </div>
+    <div class="footer-right">
+        <div class="teacher-photo">
+            <img src="./img/008.jpg" alt="نرگس جوهری">
+            <p>مدرس: نرگس جوهری</p>
+        </div>
+    </div>
+    <span>© تمام حقوق برای نرگس جوهری محفوظ است. 2025</span>
+</footer>
+
+<!-- ویجت مشاوره شناور -->
+<div class="box-widget-icon">
+    <div class="widget-icon" id="chatToggleWidget">💬</div>
+</div>
+
+<!-- پنجره چت -->
+<div class="chat-box" id="chatBox">
+    <div class="chat-header">
+        <span>مشاوره رایگان</span>
+        <button id="closeChat">&times;</button>
+    </div>
+    <div class="chat-body" id="chatBody">
+        <div class="message bot">سلام! 👋 من نرگس جوهری هستم، چطور می‌تونم کمکتون کنم؟</div>
+    </div>
+    <div class="chat-input">
+        <input type="text" id="userInput" placeholder="پیامتو بنویس..." />
+        <button id="sendBtn">ارسال</button>
+    </div>
+</div>
+
+<script src="./googl shete package.js"></script>
+
+</body>
+</html>

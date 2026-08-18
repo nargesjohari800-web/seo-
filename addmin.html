@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="fa">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ادمین پنل کامل</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            margin: 0;
+            padding: 0;
+            color: white;
+            background-color: #1e293b;
+        }
+
+        .container {
+            display: flex;
+            height: 100vh;
+            flex-direction: row-reverse;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            width: 240px;
+            background: #0f1724;
+            color: #fff;
+            padding: 20px;
+        }
+
+        .sidebar h2 {
+            margin-top: 0;
+            font-size: 20px;
+        }
+
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .sidebar li {
+            margin-bottom: 10px;
+        }
+
+        .sidebar a {
+            color: #fff;
+            text-decoration: none;
+            cursor: pointer;
+            display: block;
+            padding: 8px;
+            border-radius: 4px;
+        }
+
+        .sidebar a:hover {
+            background: #444;
+        }
+
+        /* Main content */
+        .main {
+            flex: 1;
+            padding: 20px;
+            overflow-y: auto;
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .comment,
+        .user,
+        .product,
+        .order,
+        .notification {
+            border-bottom: 1px solid #555;
+            padding: 10px 0;
+        }
+
+        .comment:last-child,
+        .user:last-child,
+        .product:last-child,
+        .order:last-child,
+        .notification:last-child {
+            border-bottom: none;
+        }
+
+        button {
+            margin-left: 10px;
+            background-color: #620909;
+            color: white;
+            border: none;
+            width: 100px;
+            height: 30px;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #a82828;
+        }
+
+        .reply-btn {
+            background-color: #28a745;
+        }
+
+        .reply-btn:hover {
+            background-color: #218838;
+        }
+
+        .reply-send-btn {
+            background-color: #28a745;
+            color: white;
+            border: none;
+        }
+
+        .reply-send-btn:hover {
+            background-color: #218838;
+        }
+
+        .reply-input {
+            margin-top: 5px;
+            width: 60%;
+            padding: 5px;
+            border-radius: 5px;
+            border: none;
+        }
+
+        .reply-text {
+            margin-top: 5px;
+            padding-left: 10px;
+            border-left: 2px solid #ccc;
+            color: #fff;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+
+        th,
+        td {
+            border: 1px solid #555;
+            padding: 8px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #0f1724;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <h2>مدیر پنل</h2>
+            <ul>
+                <li><a data-page="users">مدیریت کاربران</a></li>
+                <li><a data-page="orders">مدیریت سفارش و فروش</a></li>
+                <li><a data-page="products">مدیریت محصولات</a></li>
+                <li><a data-page="comments">مدیریت کامنت‌ها و پیام‌ها</a></li>
+                <li><a data-page="photos">مدیریت تصاویر و فایل‌ها</a></li>
+                <li><a data-page="reports">گزارش‌ها</a></li>
+                <li><a data-page="notifications">اعلان‌ها و نوتیفیکیشن</a></li>
+            </ul>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main">
+            <div id="users" class="tab-content"></div>
+            <div id="orders" class="tab-content"></div>
+            <div id="products" class="tab-content"></div>
+            <div id="comments" class="tab-content"></div>
+            <div id="photos" class="tab-content"></div>
+            <div id="reports" class="tab-content"></div>
+            <div id="notifications" class="tab-content">
+                <h3>ارسال نوتیفیکیشن به کاربران</h3>
+                <input type="text" id="notification-title" placeholder="عنوان نوتیفیکیشن"
+                    style="width: 50%; padding: 5px; margin-bottom: 10px;">
+                <br>
+                <textarea id="notification-message" placeholder="متن نوتیفیکیشن"
+                    style="width: 70%; height: 80px; padding: 5px;"></textarea>
+                <br>
+                <button id="send-notification-btn" class="reply-send-btn"
+                    style="margin-top: 20px; padding: 8px 15px; font-size: 14px; border-radius: 8px; background-color: #28a745; color: white; cursor: pointer; border: none;">
+                    ارسال نوتیفیکیشن
+                </button>
+
+                <div id="notification-status" style="margin-top: 15px; color: yellow;"></div>
+                <div id="notification-list" style="margin-top: 15px;"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // داده‌های نمونه
+        const data = {
+            users: [
+                { name: 'Ali', status: 'فعال' },
+                { name: 'Sara', status: 'فعال' }
+            ],
+            orders: [
+                { id: 1, product: 'SEO Package', user: 'Ali', amount: '$100' },
+                { id: 2, product: 'Google Sheet Package', user: 'Sara', amount: '$50' }
+            ],
+            products: [
+                { name: 'SEO Package', price: '$100' },
+                { name: 'Google Sheet Package', price: '$50' }
+            ],
+            comments: [
+                { name: 'Ali', message: 'سوال درباره SEO 1', page: 'seo' },
+                { name: 'Sara', message: 'سوال درباره Google Sheet', page: 'google-sheet' }
+            ],
+            photos: [
+                { name: 'Ali', image: 'image1.jpg' },
+                { name: 'Sara', image: 'image2.jpg' }
+            ],
+            reports: [
+                { type: 'فروش روزانه', value: '$150' },
+                { type: 'فروش هفتگی', value: '$400' }
+            ],
+            notifications: [
+                { message: 'کاربر جدید ثبت نام کرد' },
+                { message: 'سفارش جدید ثبت شد' }
+            ]
+        };
+
+        // نمایش محتوای هر تب
+        function showContent(page) {
+            document.querySelectorAll('.tab-content').forEach(tab => tab.classList.remove('active'));
+            const container = document.getElementById(page);
+            container.classList.add('active');
+            container.innerHTML = '';
+
+            if (page === 'users') {
+                data.users.forEach(user => {
+                    const div = document.createElement('div');
+                    div.className = 'user';
+                    div.innerHTML = `<strong>${user.name}</strong> - وضعیت: ${user.status} 
+                <button class="block-btn">بلاک</button>`;
+                    container.appendChild(div);
+                    div.querySelector('.block-btn').addEventListener('click', () => {
+                        user.status = user.status === 'فعال' ? 'بلاک شده' : 'فعال';
+                        showContent('users');
+                    });
+                });
+            } else if (page === 'orders') {
+                const table = document.createElement('table');
+                table.innerHTML = `<tr><th>شناسه</th><th>محصول</th><th>کاربر</th><th>مبلغ</th></tr>`;
+                data.orders.forEach(order => {
+                    const row = document.createElement('tr');
+                    row.innerHTML = `<td>${order.id}</td><td>${order.product}</td><td>${order.user}</td><td>${order.amount}</td>`;
+                    table.appendChild(row);
+                });
+                container.appendChild(table);
+            } else if (page === 'products') {
+                data.products.forEach(product => {
+                    const div = document.createElement('div');
+                    div.className = 'product';
+                    div.innerHTML = `<strong>${product.name}</strong> - قیمت: ${product.price} <button class="delete-btn">پاک کردن</button>`;
+                    container.appendChild(div);
+                    div.querySelector('.delete-btn').addEventListener('click', () => container.removeChild(div));
+                });
+            } else if (page === 'comments') {
+                data.comments.forEach(item => {
+                    const div = document.createElement('div');
+                    div.className = 'comment';
+                    div.innerHTML = `<strong>${item.name}</strong> [${item.page}]: ${item.message} 
+                <button class="delete-btn">پاک کردن</button>
+                <button class="reply-btn">پاسخ</button>`;
+                    container.appendChild(div);
+
+                    div.querySelector('.delete-btn').addEventListener('click', () => container.removeChild(div));
+
+                    div.querySelector('.reply-btn').addEventListener('click', () => {
+                        if (!div.querySelector('.reply-input')) {
+                            const replyInput = document.createElement('input');
+                            replyInput.type = 'text';
+                            replyInput.placeholder = 'پاسخ خود را بنویسید...';
+                            replyInput.className = 'reply-input';
+
+                            const sendBtn = document.createElement('button');
+                            sendBtn.textContent = 'ارسال پاسخ';
+                            sendBtn.className = 'reply-send-btn';
+                            sendBtn.addEventListener('click', () => {
+                                const replyText = replyInput.value.trim();
+                                if (replyText) {
+                                    const replyDiv = document.createElement('div');
+                                    replyDiv.className = 'reply-text';
+                                    replyDiv.textContent = `پاسخ: ${replyText}`;
+                                    div.appendChild(replyDiv);
+                                    replyInput.value = '';
+                                }
+                            });
+
+                            div.appendChild(replyInput);
+                            div.appendChild(sendBtn);
+                        }
+                    });
+                });
+            } else if (page === 'photos') {
+                data.photos.forEach(item => {
+                    const div = document.createElement('div');
+                    div.className = 'comment';
+                    div.innerHTML = `<strong>${item.name}</strong>: <img src="${item.image}" alt="photo" width="100"> <button class="delete-btn">پاک کردن</button>`;
+                    container.appendChild(div);
+                    div.querySelector('.delete-btn').addEventListener('click', () => container.removeChild(div));
+                });
+            } else if (page === 'reports') {
+                const table = document.createElement('table');
+                table.innerHTML = `<tr><th>نوع گزارش</th><th>مقدار</th></tr>`;
+                data.reports.forEach(r => {
+                    const row = document.createElement('tr');
+                    row.innerHTML = `<td>${r.type}</td><td>${r.value}</td>`;
+                    table.appendChild(row);
+                });
+                container.appendChild(table);
+            } else if (page === 'notifications') {
+                const html = `
+            <h3>ارسال نوتیفیکیشن به کاربران</h3>
+            <input type="text" id="notification-title" placeholder="عنوان نوتیفیکیشن" style="width: 50%; padding: 5px; margin-bottom: 10px;">
+            <br>
+            <textarea id="notification-message" placeholder="متن نوتیفیکیشن" style="width: 70%; height: 80px; padding: 5px;"></textarea>
+            <br>
+            <button id="send-notification-btn" class="reply-send-btn" style="margin-top: 10px;">ارسال نوتیفیکیشن</button>
+            <div id="notification-status" style="margin-top: 15px; color: yellow;"></div>
+            <div id="notification-list" style="margin-top: 15px;"></div>
+        `;
+                container.innerHTML = html;
+                renderNotifications();
+
+                // اضافه کردن event listener بعد از ساخت المان‌ها
+                document.getElementById('send-notification-btn').addEventListener('click', () => {
+                    const title = document.getElementById('notification-title').value.trim();
+                    const message = document.getElementById('notification-message').value.trim();
+                    const statusDiv = document.getElementById('notification-status');
+
+                    if (!title || !message) {
+                        statusDiv.textContent = 'لطفاً عنوان و متن نوتیفیکیشن را وارد کنید!';
+                        return;
+                    }
+
+                    data.notifications.push({ title, message });
+                    renderNotifications();
+                    statusDiv.textContent = `پیام ارسال شد: "${title}" - "${message}"`;
+                    document.getElementById('notification-title').value = '';
+                    document.getElementById('notification-message').value = '';
+                });
+            }
+        }
+
+        // Sidebar click
+        document.querySelectorAll('.sidebar a').forEach(link => {
+            link.addEventListener('click', () => showContent(link.dataset.page));
+        });
+
+        // نمایش پیش‌فرض
+        showContent('users');
+
+        // تابع رندر نوتیفیکیشن‌ها
+        function renderNotifications() {
+            const listDiv = document.getElementById('notification-list');
+            if (!listDiv) return;
+            listDiv.innerHTML = '';
+            data.notifications.forEach(n => {
+                const div = document.createElement('div');
+                div.className = 'notification';
+                div.textContent = `${n.title ? n.title + ' - ' : ''}${n.message}`;
+                listDiv.appendChild(div);
+            });
+        }
+    </script>
+</body>
+
+</html>

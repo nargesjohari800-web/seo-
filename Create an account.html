@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="fa">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="Create an account.css" />
+  <link rel="shortcut icon" href="./img/njjn.png">
+  <script src="https://accounts.google.com/gsi/client" async defer></script>
+  <title>فرم ثبت نام و ورود</title>
+</head>
+
+<body>
+
+  <div class="container">
+    <div class="tabs">
+      <div class="tab active" data-target="loginForm">ورود</div>
+      <div class="tab" data-target="registerForm">ثبت نام</div>
+    </div>
+    <p>سلام رفیق، به خانواده ما خوش اومدی</p>
+
+    <!-- فرم ورود -->
+    <form id="loginForm" class="active" novalidate>
+      <p>می‌توانید با گوگل یا شماره موبایل وارد شوید</p>
+
+      <!-- ورود با گوگل -->
+      <div id="googleSignInWrapper">
+        <div id="g_id_onload"
+          data-client_id="YOUR_GOOGLE_CLIENT_ID"
+          data-context="signin"
+          data-ux_mode="popup"
+          data-callback="handleCredentialResponse"
+          data-auto_prompt="false">
+        </div>
+        <div class="g_id_signin" data-type="standard"></div>
+      </div>
+
+      <hr style="margin:15px 0;">
+
+      <!-- شماره موبایل و OTP -->
+      <label for="regPhone">شماره موبایل</label>
+      <input type="text" id="regPhone" name="regPhone" placeholder="مثلا: 09123456789" required />
+      <div class="error" id="regPhoneError"></div>
+
+      <button type="button" id="sendOtpBtn">ارسال کد تایید</button>
+      <div id="otpSentMessage" class="success" aria-live="polite"></div>
+
+      <!-- کانتینر OTP -->
+      <div id="otpContainer" style="display:none; margin-top:10px;">
+        <label for="otpInput">کد تایید ۸ رقمی</label>
+        <input type="text" id="otpInput" inputmode="numeric" maxlength="8" placeholder="مثال: 12345678" />
+        <div class="error" id="otpError"></div>
+        <button type="button" id="verifyOtpBtn">تأیید کد</button>
+        <div id="otpSuccessMessage" class="success" aria-live="polite"></div>
+      </div>
+
+      <div class="success" id="loginSuccess"></div>
+      <button type="submit" class="but0"> <a href="./Magical SEO.html">صحفه اصلی</a></button>
+    </form>
+
+    <!-- فرم ثبت نام -->
+    <form id="registerForm" novalidate>
+      <label for="regName">نام کامل</label>
+      <input type="text" id="regName" name="regName" placeholder="مثلا: نرگس جوهریی" required minlength="3" />
+      <div class="error" id="regNameError"></div>
+
+      <label for="regEmail">ایمیل</label>
+      <input type="email" id="regEmail" name="regEmail" placeholder="example@example.com" required />
+      <div class="error" id="regEmailError"></div>
+
+      <label for="regPassword">رمز عبور</label>
+      <input type="password" id="regPassword" name="regPassword" placeholder="حداقل 6 کاراکتر" required minlength="6" />
+      <div class="error" id="regPasswordError"></div>
+
+      <label for="regConfirmPassword">تکرار رمز عبور</label>
+      <input type="password" id="regConfirmPassword" name="regConfirmPassword" placeholder="رمز عبور را تکرار کنید" required minlength="6" />
+      <div class="error" id="regConfirmPasswordError"></div>
+
+      <button type="submit">ثبت نام</button>
+      <div class="success" id="registerSuccess"></div>
+      <button type="submit" class="but0"> <a href="./Magical SEO.html">صحفه اصلی</a></button>
+    </form>
+  </div>
+
+  <script src="Create an account.js"></script>
+
+</body>
+</html>

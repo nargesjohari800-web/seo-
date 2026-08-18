@@ -1,0 +1,629 @@
+/* =================== ریشه و متغیرها =================== */
+:root {
+  --bg: #0f1724;
+  --card: #0b1220;
+  --accent: #0ABAB5;
+  --muted: #9aa4b2;
+  --font: 'Vazirmatn', sans-serif;
+}
+
+/* =================== تنظیمات پایه =================== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  height: 100%;
+  font-family: var(--font);
+  background: linear-gradient(180deg, var(--bg), #0f1724);
+  color: #e6eef6;
+  scroll-behavior: smooth;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* ====== هدر ====== */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 50px;
+  background-color: #0f1724;
+  flex-wrap: wrap;
+  position: relative;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo img {
+  height: 45px;
+}
+
+.logo h1 {
+  font-size: 24px;
+}
+
+#SEO {
+  color: #3b82f6;
+}
+
+.header ul {
+  display: flex;
+  list-style: none;
+  gap: 25px;
+  margin: 0;
+  padding: 0;
+}
+
+.header ul li a:hover {
+  color: #3b82f6;
+}
+
+.buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.buttons a {
+  padding: 8px 15px;
+  border: 1px solid #3b82f6;
+  border-radius: 5px;
+  transition: 0.3s;
+}
+
+.buttons a:hover {
+  background-color: #3b82f6;
+  color: #fff;
+}
+
+/* ====== منو موبایل ====== */
+.menu-toggle {
+  display: none;
+  font-size: 26px;
+  color: #3b82f6;
+  cursor: pointer;
+}
+
+@media (max-width: 900px) {
+  .header {
+    padding: 15px 20px;
+  }
+
+  .header ul {
+    display: none;
+    flex-direction: column;
+    background: #111827;
+    width: 100%;
+    text-align: center;
+    gap: 10px;
+    padding: 15px 0;
+    border-top: 1px solid #3b82f6;
+  }
+
+  .header ul.active {
+    display: flex;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  .buttons {
+    display: none;
+  }
+}
+
+
+/* meno */
+
+/* ==== قسمت CENTER واکنش‌گرا و وسط‌چین ==== */
+.center {
+  width: 100%;
+  min-height: 100vh;
+  background-color: #141f31;
+  display: flex;
+  justify-content: center; /* افقی وسط */
+  align-items: flex-start; /* محتوا از بالا شروع میشه */
+  padding: 60px 20px;
+  box-sizing: border-box;
+}
+
+.container {
+  width: 100%;
+  max-width: 880px;
+  background-color: #fff;
+  padding: 30px 25px;
+  border-radius: 12px;
+  border: 2px dashed #1a030d;
+  color: #2980b9;
+  text-align: right;
+  direction: rtl;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.08);
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+
+  /* اضافه برای وسط‌چین در صفحه‌های بزرگ */
+  margin: 0 auto;
+}
+
+/* بخش بالایی: عکس + اطلاعات کتاب */
+.book-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.book-image {
+  width: 230px;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgb(255, 255, 255);
+  flex-shrink: 0;
+}
+
+.book-info {
+  flex: 1;
+  min-width: 250px;
+}
+
+.book-info h1 {
+  color: #2980b9;
+  margin-bottom: 10px;
+  font-size: 22px;
+}
+
+.book-info p {
+  font-size: 16px;
+  margin: 6px 0;
+  line-height: 1.6;
+}
+
+.price {
+  font-size: 20px;
+  color: #4caf50;
+  font-weight: bold;
+  margin-top: 15px;
+}
+
+.buy-button {
+  margin-top: 10px;
+  padding: 10px 25px;
+  background-color: #2980b9;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.buy-button:hover {
+  background-color: #6060f4;
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(59, 130, 246, 0.4);
+}
+
+/* توضیحات پایین */
+.section {
+  margin-top: 40px;
+}
+
+.section h2 {
+  color: #2980b9;
+  margin-bottom: 10px;
+}
+
+.section p {
+  line-height: 1.8;
+  color: #020724;
+  word-break: break-word;
+}
+
+/* 📱 نسخه موبایل */
+@media (max-width: 900px) {
+  .center {
+    padding: 20px;
+  }
+
+  .container {
+    padding: 20px;
+    text-align: center;
+    margin: 0; /* در موبایل نیازی به وسط‌چین دستی نیست */
+  }
+
+  .book-header {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .book-image {
+    width: 180px;
+  }
+
+  .book-info {
+    text-align: center;
+  }
+
+  .book-info h1 {
+    font-size: 20px;
+  }
+
+  .buy-button {
+    width: 100%;
+  }
+
+  .section p {
+    text-align: justify;
+  }
+}
+/* عکس */
+.book-slider {
+  position: relative;
+  width: 230px;
+  height: 300px;
+  margin-bottom: 20px;
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.book-slider img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+
+.book-slider img:active {
+  transform: scale(0.95); /* افکت کلیک */
+}
+
+.book-slider button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0,0,0,0.5);
+  color: #fff;
+  border: none;
+  padding: 8px 12px;
+  cursor: pointer;
+  font-size: 20px;
+  border-radius: 5px;
+  z-index: 10;
+}
+
+.book-slider .prev {
+  left: 5px;
+}
+
+.book-slider .next {
+  right: 5px;
+}
+
+/* واکنش‌گرایی موبایل */
+@media (max-width: 900px) {
+  .book-slider {
+    width: 180px;
+    height: 240px;
+    margin: 0 auto 15px;
+  }
+}
+/*  برای مسیر راه */
+.breadcrumb {
+  list-style: none;
+  display: flex;
+  gap: 5px;
+  font-family: sans-serif;
+}
+
+.breadcrumb li::after {
+  content: ">";
+  margin: 0 5px;
+}
+
+.breadcrumb li:last-child::after {
+  content: "";
+}
+
+.breadcrumb a {
+  text-decoration: none;
+  color: #feffff;
+}
+
+.breadcrumb a:hover {
+  text-decoration: underline;
+}
+/* ====== فوتر ====== */
+/* ==== اصلاح دقیق فوتر ==== */
+footer {
+  background-color: #111827;
+  color: #9aa4b2;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px 50px;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.footer-left,
+.footer-right,
+.social-icons {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.footer-left .footer-logo {
+  height: 50px;
+  width: auto;
+  object-fit: contain;
+}
+
+.teacher-photo img {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 5px;
+}
+
+.teacher-photo p {
+  font-size: 14px;
+  margin: 0;
+  text-align: center;
+  color: #9aa4b2;
+}
+
+.social-icons a {
+  color: #9aa4b2;
+  font-size: 22px;
+  transition: color 0.3s;
+}
+
+.social-icons a:hover {
+  color: #fff;
+}
+
+@media (max-width: 768px) {
+  footer {
+    flex-direction: column;
+    text-align: center;
+    gap: 15px;
+  }
+
+  .footer-left, .footer-right, .social-icons {
+    justify-content: center;
+  }
+
+  .footer-left .footer-logo {
+    height: 40px;
+  }
+
+  .teacher-photo img {
+    width: 60px;
+    height: 60px;
+  }
+}
+
+/* ویجت مشاوره دایره‌ای */
+.box-widget-icon {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  z-index: 9999;
+}
+
+.widget-icon {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+background-color: #1E293B;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 28px;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  transition: transform 0.3s, background-color 0.3s;
+}
+
+.widget-icon:hover {
+  transform: scale(1.1);
+  background-color: #0f1724;
+}
+
+/* پنجره چت */
+.chat-box {
+  position: fixed;
+  bottom: 100px;
+  right: 25px;
+  width: 320px;
+  max-width: 90%;
+  height: 420px;
+  background-color: #1e293b;
+  border-radius: 15px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+  display: none;
+  flex-direction: column;
+  overflow: hidden;
+  z-index: 9998;
+}
+
+.chat-box.show {
+  display: flex;
+  animation: fadeInChat 0.3s ease;
+}
+
+.chat-header {
+  background-color: #3b82f6;
+  color: white;
+  padding: 12px;
+  font-size: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.chat-header button {
+  background: transparent;
+  border: none;
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.chat-body {
+  flex: 1;
+  padding: 15px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  direction: rtl;
+}
+
+.message {
+  padding: 10px 14px;
+  border-radius: 10px;
+  max-width: 80%;
+  line-height: 1.5;
+  font-size: 14px;
+}
+
+.message.bot {
+  background-color: #0f172a;
+  color: #e6eef6;
+  align-self: flex-start;
+}
+
+.message.user {
+  background-color: #3b82f6;
+  color: #fff;
+  align-self: flex-end;
+}
+
+.chat-input {
+  display: flex;
+  border-top: 1px solid #334155;
+}
+
+.chat-input input {
+  flex: 1;
+  padding: 10px;
+  border: none;
+  outline: none;
+  background-color: #0f1724;
+  color: #fff;
+  direction: rtl;
+}
+
+.chat-input button {
+  background-color: #3b82f6;
+  border: none;
+  color: #fff;
+  padding: 10px 15px;
+  cursor: pointer;
+}
+
+.chat-input button:hover {
+  background-color: #6060f4;
+}
+
+/* انیمیشن باز و بسته شدن چت */
+@keyframes fadeInChat {
+  from {opacity: 0; transform: translateY(20px);}
+  to {opacity: 1; transform: translateY(0);}
+}
+
+/* واکنش‌گرا برای موبایل */
+@media (max-width: 600px) {
+  .widget-icon {
+    width: 50px;
+    height: 50px;
+    font-size: 24px;
+  }
+  .chat-box {
+    width: 90%;
+    right: 5%;
+    bottom: 80px;
+    height: 350px;
+  }
+}
+
+/* واکنش‌گرا برای تبلت (بین 700 تا 1000 پیکسل) */
+@media (max-width: 1000px) {
+  .header {
+    flex-wrap: wrap;
+    padding: 15px 25px;
+  }
+
+  .header ul {
+    display: none; /* منو پنهان شود */
+    flex-direction: column;
+    width: 100%;
+    background: #111827;
+    text-align: center;
+    gap: 12px;
+    padding: 15px 0;
+    border-top: 1px solid #3b82f6;
+  }
+
+  .header ul.active {
+    display: flex; /* فعال شدن منو هنگام کلیک روی آیکون */
+  }
+
+  .menu-toggle {
+    display: block; /* آیکون منو نشان داده شود */
+    font-size: 30px;
+    cursor: pointer;
+  }
+
+  .buttons {
+    display: none; /* دکمه‌های ورود و پنل پنهان شوند تا جا باز شود */
+  }
+
+  .logo h1 {
+    font-size: 20px;
+  }
+
+  .logo img {
+    height: 40px;
+  }
+}
+
+/* برای گوشی‌های کوچکتر از 700px */
+@media (max-width: 700px) {
+  .header {
+    padding: 10px 15px;
+  }
+
+  .menu-toggle {
+    font-size: 26px;
+  }
+
+  .header ul {
+    gap: 10px;
+    padding: 10px 0;
+  }
+
+  .header ul li a {
+    font-size: 16px;
+  }
+}
